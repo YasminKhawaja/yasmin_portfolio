@@ -1,0 +1,182 @@
+:root {
+  --color-bg: #f9f9f9;
+  --color-text: #111111;
+
+  --color-sage: #d3d9bd;
+
+  --color-pill: rgba(217, 217, 217, 0.23);
+
+  --color-pill-soft: rgba(217, 217, 217, 0.2);
+
+  --color-accent: rgba(197, 196, 211, 0.35);
+
+  --font-heading: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+
+  --font-body: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================
+   RESET
+========================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+
+  margin: 0;
+
+  padding: 0;
+
+  font-family: var(--font-body);
+}
+
+body {
+  margin: 0;
+
+  overflow-x: hidden;
+
+  background: var(--color-bg);
+
+  color: var(--color-text);
+
+  font-family: var(--font-body);
+
+  cursor: none;
+}
+
+/* =========================================
+   TOUCH
+========================================= */
+
+@media (hover: none), (max-width: 900px) {
+  body {
+    cursor: auto;
+  }
+}
+
+/* =========================================
+   TYPOGRAPHY
+========================================= */
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+button {
+  border: none;
+
+  background: none;
+
+  font-family: inherit;
+
+  cursor: pointer;
+}
+
+/* =========================================
+   TAG PILLS
+
+   Deze zijn voor tags / labels,
+   niet meer voor CTA buttons.
+========================================= */
+
+.pill {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 16px;
+
+  border-radius: 999px;
+
+  background: var(--color-pill);
+
+  font-size: 13px;
+
+  line-height: 1;
+
+  transition:
+    transform 0.35s var(--ease-soft),
+    background 0.35s var(--ease-soft);
+}
+
+.pill:hover {
+  transform: translateY(-2px);
+
+  background: var(--color-accent);
+}
+
+/* =========================================
+   GLOBAL SECTION
+========================================= */
+
+.section {
+  width: 100%;
+
+  max-width: 1216px;
+
+  margin: 0 auto;
+
+  padding: 120px 24px;
+}
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(40px);
+
+  will-change: opacity, transform;
+}
+
+.no-js .reveal {
+  opacity: 1;
+
+  transform: none;
+}
+
+/* =========================================
+   KEYBOARD
+========================================= */
+
+:focus-visible {
+  outline: 2px solid currentColor;
+
+  outline-offset: 4px;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+  .section {
+    padding: 90px 20px;
+  }
+}
