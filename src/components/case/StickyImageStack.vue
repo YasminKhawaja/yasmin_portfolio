@@ -189,11 +189,11 @@ onBeforeUnmount(() => {
   display: block;
 
   width: 100%;
-  height: 100%;
+  height: auto;
 
-  min-height: min(72vh, 760px);
+  max-height: min(72vh, 760px);
 
-  object-fit: cover;
+  object-fit: contain;
 
   /*
     Geen border radius nodig op img zelf

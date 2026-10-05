@@ -158,21 +158,32 @@ useScrollReveal(reflection, ".reveal", {
 ========================================= */
 
 const understandImages = [
-  "/images/next/moodboard-01.jpg",
-  "/images/next/moodboard-02.jpg",
-  "/images/next/moodboard-03.jpg",
+  "/images/next/moodboard_next_webdesign.webp",
+  "/images/next/values_next_webdesign.webp",
+  "/images/next/audience_next_webdesign.webp",
 ];
 
 const ideateImages = [
-  "/images/next/moodboard-04.jpg",
-  "/images/next/moodboard-05.jpg",
-  "/images/next/moodboard-06.jpg",
+  "/images/next/new_moodboard_next_webdesign.webp",
+  "/images/next/colours_next_webdesign.webp",
+  "/images/next/typography_next_webdesign.webp",
+  "/images/next/logos_next_webdesign.webp",
+  "/images/next/logo_v1_branding.webp",
+  "/images/next/logo_v2_branding.webp",
+  "/images/next/logo_v3_branding.webp",
+  "/images/next/logo_v4_branding.webp",
+  "/images/next/new_next_branding.webp",
 ];
 
 const iterationImages = [
-  "/images/next/moodboard-07.jpg",
-  "/images/next/moodboard-08.jpg",
-  "/images/next/moodboard-09.jpg",
+  "/images/next/wireframe_v1_webdesign.webp",
+  "/images/next/wireframe_v2_webdesign.webp",
+  "/images/next/wireframe_v3_webdesign.webp",
+  "/images/next/wireframe_v4_webdesign.webp",
+  "/images/next/wireframe_v5_webdesign.webp",
+  "/images/next/wireframe_v6_webdesign.webp",
+  "/images/next/wireframe_v7_webdesign.webp",
+  "/images/next/wireframe_v8_webdesign.webp",
 ];
 
 const buildImages = [
@@ -347,7 +358,7 @@ const findingsData = [
 
     <section class="case-wide-visual">
       <img
-        src="/images/next/moodboard-01.jpg"
+        src="/images/next/live_website_webdesign.webp"
         alt="NEXT branding and responsive website project"
       />
     </section>
@@ -1156,23 +1167,34 @@ const findingsData = [
 
   max-width: 1500px;
 
-  height: min(82vh, 920px);
+  aspect-ratio: 16 / 10;
 
   margin: 0 auto 60px;
 
   overflow: hidden;
 
   border-radius: 32px;
+
+  background: #f1f1ef;
 }
 
 .case-wide-visual img {
   display: block;
 
   width: 100%;
+  height: auto;
 
-  height: 100%;
+  max-height: min(72vh, 1000px);
 
-  object-fit: cover;
+  object-fit: contain;
+}
+
+.image-stack__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
 }
 
 /* =========================================

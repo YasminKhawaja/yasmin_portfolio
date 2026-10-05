@@ -110,11 +110,7 @@ const progressSteps = [
    IMAGE STACKS
 ========================================= */
 
-const benchmarkImages = [
-  "/images/lumiere/moodboard-01.jpg",
-  "/images/lumiere/moodboard-02.jpg",
-  "/images/lumiere/moodboard-03.jpg",
-];
+const benchmarkImages = ["/images/lumiere/benchmarking_webdesign.webp"];
 
 const structureImages = [
   "/images/lumiere/moodboard-04.jpg",
@@ -263,7 +259,7 @@ const testTasks = [
 
     <section class="case-wide-visual">
       <img
-        src="/images/lumiere/moodboard-01.jpg"
+        src="/images/lumiere/hero_webdesign.webp"
         alt="Cinema Lumière UX/UI mobile app case study"
       />
     </section>
@@ -1008,7 +1004,7 @@ const testTasks = [
 
   height: 100%;
 
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* =========================================
