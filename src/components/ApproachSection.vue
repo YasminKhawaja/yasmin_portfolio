@@ -1,34 +1,39 @@
 <template>
-  <section id="approach" ref="root" class="section approach">
+  <section
+    id="approach"
+    ref="root"
+    class="section approach"
+    aria-labelledby="approach-title"
+  >
     <SectionHeading
       title="My approach"
-      intro="I design in layers: first understanding the people and context behind a project, then shaping the structure, visual direction and building something people can use."
+      intro="My design process combines UX research, clear structure, UI design and front-end development. I start by understanding people and context, then turn those insights into thoughtful digital experiences that can be tested, refined and built."
     />
 
     <div class="approach__grid">
-      <TiltSurface
+      <div
         v-for="step in steps"
         :key="step.title"
-        class="approach__card reveal"
-        :strength="5"
-        :scale="1.018"
+        class="approach__item reveal"
       >
-        <span class="approach__number">
-          {{ step.number }}
-        </span>
+        <TiltSurface class="approach__card" :strength="5" :scale="1.018">
+          <span class="approach__number">
+            {{ step.number }}
+          </span>
 
-        <div class="approach__card-content">
-          <h3>
-            {{ step.title }}
-          </h3>
+          <div class="approach__card-content">
+            <h3>
+              {{ step.title }}
+            </h3>
 
-          <p>
-            {{ step.text }}
-          </p>
-        </div>
+            <p>
+              {{ step.text }}
+            </p>
+          </div>
 
-        <span class="approach__decoration" aria-hidden="true"></span>
-      </TiltSurface>
+          <span class="approach__decoration" aria-hidden="true"></span>
+        </TiltSurface>
+      </div>
     </div>
   </section>
 </template>
@@ -50,26 +55,34 @@ useScrollReveal(root, ".reveal", {
 const steps = [
   {
     number: "01",
+
     title: "Discover",
-    text: "I start by understanding the context, the people involved and the problem behind the brief.",
+
+    text: "I start with UX research by understanding the context, the people involved and the problem behind the brief.",
   },
 
   {
     number: "02",
+
     title: "Structure",
-    text: "I turn insights into clear flows, wireframes and content priorities so the experience has a strong foundation.",
+
+    text: "I turn insights into clear user flows, wireframes and content priorities so the digital experience has a strong foundation.",
   },
 
   {
     number: "03",
+
     title: "Design",
-    text: "I shape the visual language, interface and interaction details so the project feels clear, thoughtful and intentional.",
+
+    text: "I shape the UI, visual language and interaction details so the experience feels clear, accessible and intentional.",
   },
 
   {
     number: "04",
+
     title: "Build",
-    text: "I create working prototypes or websites and refine them through testing, feedback and iteration.",
+
+    text: "I create interactive prototypes or responsive websites and improve them through user testing, feedback and iteration.",
   },
 ];
 </script>
@@ -86,6 +99,16 @@ const steps = [
 }
 
 /* =========================================
+   ITEM / REVEAL WRAPPER
+========================================= */
+
+.approach__item {
+  min-width: 0;
+
+  height: 100%;
+}
+
+/* =========================================
    CARD
 ========================================= */
 
@@ -99,6 +122,8 @@ const steps = [
   justify-content: space-between;
 
   min-height: 300px;
+
+  height: 100%;
 
   padding: 28px;
 

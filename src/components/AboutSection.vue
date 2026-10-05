@@ -1,21 +1,26 @@
 <template>
-  <section id="about" ref="root" class="section about">
+  <section
+    id="about"
+    ref="root"
+    class="section about"
+    aria-labelledby="about-home-title"
+  >
     <SectionHeading
       title="About me"
-      intro="I'm Yasmin, a Digital Experience Design student who likes creating calm, thoughtful and playful digital experiences."
+      intro="I'm Yasmin, a Digital Experience Design student focused on UX/UI, interaction design, branding and front-end development. I like creating digital experiences that feel calm, thoughtful, accessible and a little playful."
     />
 
     <div class="about__copy">
       <p class="reveal">
         My work often starts with structure: understanding the problem,
-        organising information and shaping clear user flows. From there, I like
-        to build a visual world around the experience — through UI, branding,
-        interaction, illustration or 3D.
+        organising information and shaping clear user flows. From there, I build
+        a visual direction around the experience through UI design, branding,
+        interaction, illustration and 3D.
       </p>
 
       <p class="reveal">
         I'm especially interested in projects where design feels useful, human
-        and a little bit alive.
+        and visually engaging, while still remaining clear and easy to use.
       </p>
     </div>
 
@@ -26,34 +31,34 @@
         <h3 class="reveal">My three hats</h3>
 
         <p class="about__hats-intro reveal">
-          I work in three worlds that constantly influence each other. Together,
-          they form how I think, design and build. Calm, clear, human, and
-          always a little playful.
+          I work across three connected areas: design, code and visual
+          storytelling. Together, they shape how I think, design and build
+          digital experiences that are clear, human and a little playful.
         </p>
       </header>
 
       <div class="about__hats-grid">
-        <TiltSurface
+        <div
           v-for="(hat, index) in hats"
           :key="hat.title"
-          class="about__hat reveal"
-          :strength="4"
-          :scale="1.012"
+          class="about__hat-item reveal"
         >
-          <span class="about__hat-number"> 0{{ index + 1 }} </span>
+          <TiltSurface class="about__hat" :strength="4" :scale="1.012">
+            <span class="about__hat-number"> 0{{ index + 1 }} </span>
 
-          <div class="about__hat-content">
-            <h4>
-              {{ hat.title }}
-            </h4>
+            <div class="about__hat-content">
+              <h4>
+                {{ hat.title }}
+              </h4>
 
-            <p>
-              {{ hat.text }}
-            </p>
-          </div>
+              <p>
+                {{ hat.text }}
+              </p>
+            </div>
 
-          <span class="about__hat-orb" aria-hidden="true"></span>
-        </TiltSurface>
+            <span class="about__hat-orb" aria-hidden="true"></span>
+          </TiltSurface>
+        </div>
       </div>
     </div>
   </section>
@@ -77,19 +82,19 @@ const hats = [
   {
     title: "Design",
 
-    text: "Design is where my work begins. I love clarity, calm and structure. UX, UI, branding, visual systems — I bring order to complexity and create digital experiences that feel logical, yet also soft and human.",
+    text: "Design is where my work begins. I focus on UX/UI, branding and visual systems to bring clarity and structure to complex ideas and create digital experiences that feel logical, accessible and human.",
   },
 
   {
     title: "Code",
 
-    text: "Code is how I make my ideas move. HTML, CSS, JavaScript — I build prototypes, micro-interactions and websites that feel the way they're meant to. It's an extension of design: a way to add nuance, rhythm and life.",
+    text: "Code is how I bring ideas to life. With HTML, CSS, JavaScript and Vue, I build responsive websites, interactive prototypes and micro-interactions that extend the design experience.",
   },
 
   {
     title: "Visual Worlds",
 
-    text: "My playground. Here I combine illustration, 3D, motion, characters and atmosphere to create digital spaces that are soft, intuitive and a little magical.",
+    text: "This is where I explore illustration, 3D, motion, characters and atmosphere to create digital spaces that feel distinctive, intuitive and visually engaging.",
   },
 ];
 </script>
@@ -181,6 +186,12 @@ const hats = [
   margin-top: 40px;
 }
 
+.about__hat-item {
+  min-width: 0;
+
+  height: 100%;
+}
+
 /* =========================================
    CARD
 ========================================= */
@@ -195,6 +206,8 @@ const hats = [
   justify-content: space-between;
 
   min-height: 340px;
+
+  height: 100%;
 
   padding: 28px;
 

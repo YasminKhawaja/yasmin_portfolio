@@ -110,7 +110,6 @@ function startFloating() {
 
     const drift = gsap.to(wrapper, {
       x: () => gsap.utils.random(-35, 35),
-
       y: () => gsap.utils.random(-20, 20),
 
       duration: () => gsap.utils.random(6, 10),
@@ -118,9 +117,7 @@ function startFloating() {
       ease: "sine.inOut",
 
       repeat: -1,
-
       yoyo: true,
-
       repeatRefresh: true,
     });
 
@@ -128,7 +125,6 @@ function startFloating() {
 
     const bob = gsap.to(image, {
       y: () => gsap.utils.random(-6, 6),
-
       rotation: () => gsap.utils.random(-3, 3),
 
       duration: () => gsap.utils.random(4, 7),
@@ -136,9 +132,7 @@ function startFloating() {
       ease: "sine.inOut",
 
       repeat: -1,
-
       yoyo: true,
-
       repeatRefresh: true,
     });
 
@@ -148,7 +142,6 @@ function startFloating() {
 
 function pushLotus(event, index) {
   const wrapper = lotusElements.value[index];
-
   const pos = positions[index];
 
   if (!wrapper || !pos || !hero.value) {
@@ -156,27 +149,22 @@ function pushLotus(event, index) {
   }
 
   const flowerRect = wrapper.getBoundingClientRect();
-
   const heroRect = hero.value.getBoundingClientRect();
 
   const centerX = flowerRect.left + flowerRect.width / 2;
-
   const centerY = flowerRect.top + flowerRect.height / 2;
 
   const dx = centerX - event.clientX;
-
   const dy = centerY - event.clientY;
 
   const distance = Math.sqrt(dx * dx + dy * dy) || 1;
 
   const dirX = dx / distance;
-
   const dirY = dy / distance;
 
   const pushStrength = 10;
 
   pos.x += dirX * pushStrength;
-
   pos.y += dirY * pushStrength;
 
   const padding = 70;
@@ -236,7 +224,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section ref="hero" class="hero">
+  <section ref="hero" class="hero" aria-labelledby="home-hero-title">
     <WaterSurface />
 
     <div class="hero__shade"></div>
@@ -248,7 +236,6 @@ onBeforeUnmount(() => {
       class="lotus-wrapper"
       :style="{
         width: lotus.width + 'px',
-
         opacity: lotus.opacity,
       }"
     >
@@ -256,6 +243,7 @@ onBeforeUnmount(() => {
         class="lotus__image"
         :src="lotus.src"
         alt=""
+        aria-hidden="true"
         @mouseenter="pushLotus($event, index)"
         @mousemove="pushLotus($event, index)"
       />
@@ -264,11 +252,12 @@ onBeforeUnmount(() => {
     <div class="hero__content">
       <p class="hero__label">DIGITAL EXPERIENCE DESIGNER</p>
 
-      <h1>Hey, I’m Yasmin.</h1>
+      <h1 id="home-hero-title">Hey, I’m Yasmin.</h1>
 
       <p class="hero__description">
-        I design clear, thoughtful digital experiences with a soft visual touch,
-        from branding and UI to interactive prototypes.
+        I’m a Digital Experience Designer focused on UX/UI, interaction design,
+        accessibility and front-end development. I create clear, thoughtful
+        digital experiences with a soft visual touch.
       </p>
 
       <div class="hero__actions">
@@ -373,7 +362,7 @@ onBeforeUnmount(() => {
 }
 
 .hero__description {
-  max-width: 560px;
+  max-width: 620px;
 
   margin-top: 32px;
 

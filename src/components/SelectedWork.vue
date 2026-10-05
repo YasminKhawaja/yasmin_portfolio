@@ -2,7 +2,7 @@
   <section id="work" ref="root" class="section work">
     <SectionHeading
       title="Selected work"
-      intro="A selection of projects where I explored branding, UX/UI, accessibility and front-end development. Each project reflects a different part of my process: understanding people, shaping clear digital experiences and turning ideas into thoughtful, working designs."
+      intro="A selection of UX/UI, accessibility, branding and front-end projects. Each case study shows a different part of my process, from understanding user needs and shaping clear digital experiences to prototyping, testing and development."
     />
 
     <div class="work__grid">
@@ -41,11 +41,11 @@ const projects = [
     title: "Cinema Lumière App",
 
     description:
-      "A mobile app concept focused on creating a smoother cinema experience.",
+      "A UX/UI and interaction design case study for a mobile cinema app, from research and prototyping to usability testing.",
 
     image: "/images/projects/lumiere.jpg",
 
-    alt: "Cinema Lumière mobile app project",
+    alt: "Cinema Lumière mobile app UX/UI design",
 
     tags: ["UX/UI", "Interaction Design", "Prototype"],
 
@@ -53,13 +53,14 @@ const projects = [
   },
 
   {
-    title: "Accessibility UCD",
+    title: "Café Crèma Accessibility",
 
-    description: "Designing with accessibility and user needs in mind.",
+    description:
+      "An accessibility-focused redesign using WCAG AA, inclusive design and user-centred design principles.",
 
     image: "/images/projects/accessibility.jpg",
 
-    alt: "Accessibility user-centred design project",
+    alt: "Café Crèma accessible mobile website redesign",
 
     tags: ["User Research", "Accessibility", "Inclusive Design"],
 
@@ -69,11 +70,12 @@ const projects = [
   {
     title: "NEXT",
 
-    description: "Branding and a website for a real client.",
+    description:
+      "A real client project combining branding, UX/UI, front-end development and a responsive CMS website.",
 
     image: "/images/projects/next.jpg",
 
-    alt: "NEXT branding and website project",
+    alt: "NEXT branding and responsive website design",
 
     tags: ["Branding", "Web Design", "Frontend", "CMS"],
 

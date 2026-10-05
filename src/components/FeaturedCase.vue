@@ -1,24 +1,28 @@
 <template>
-  <section ref="root" class="section featured">
+  <section
+    ref="root"
+    class="section featured"
+    aria-labelledby="featured-case-title"
+  >
     <SectionHeading
       eyebrow="Featured case"
-      title="NEXT — A safe pause space for young students"
+      title="NEXT — A safe pause space for young people"
       max-width="760px"
     />
 
     <div class="featured__text reveal">
       <p>
-        NEXT was a client project where we translated a real briefing into a
-        complete visual identity and working website. Our concept was selected
-        by the client, turning this project into a strong example of how I
-        combine structure, visual design and digital execution.
+        NEXT was a real client project where we translated a briefing into a
+        complete visual identity and responsive website. The project combined
+        branding, UX/UI design and front-end development, and our concept was
+        selected by the client.
       </p>
 
       <p>
-        For NEXT, we designed and built a responsive website for a place where
-        young people can slow down, grow and find direction again. The website
-        needed to feel calm and trustworthy, while also being easy for the
-        client to update through a CMS.
+        We designed and built the website for a safe pause space where young
+        people can slow down, grow and find direction again. The digital
+        experience needed to feel calm, accessible and trustworthy, while
+        remaining easy for the client to manage through a CMS.
       </p>
     </div>
 
@@ -41,7 +45,7 @@
 
     <div class="featured__actions reveal">
       <CtaButton to="/projects/next" variant="dark">
-        View case study
+        View NEXT case study
       </CtaButton>
     </div>
   </section>
@@ -64,7 +68,9 @@ useScrollReveal(root, ".reveal", {
 const tags = [
   "Real client",
   "Selected concept",
+  "Branding & UX/UI",
   "Responsive website",
+  "Front-end development",
   "CMS with Bludit",
 ];
 </script>

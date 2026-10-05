@@ -19,21 +19,12 @@ gsap.registerPlugin(ScrollTrigger);
    SITE SEO DEFAULTS
 ========================================= */
 
-const defaultTitle = "Yasmin — Digital Experience Designer";
+const defaultTitle = "Digital Experience Designer | UX, UI & Frontend — Yasmin";
 
 const defaultDescription =
-  "Portfolio of Yasmin, a Digital Experience Designer creating thoughtful, accessible and visually engaging digital experiences.";
+  "Portfolio of Yasmin, a Digital Experience Designer focused on UX/UI, interaction design, accessibility and front-end development.";
 
-/*
-  Later, when your portfolio has a real domain,
-  add this to your .env file:
-
-  VITE_SITE_URL=https://yourdomain.com
-
-  For now, the fallback keeps local development working.
-*/
-
-const siteUrl = import.meta.env.VITE_SITE_URL || window.location.origin;
+const siteUrl = import.meta.env.VITE_SITE_URL || "https://www.heyitsyasmin.com";
 
 /* =========================================
    ROUTER
@@ -49,10 +40,10 @@ const router = createRouter({
       component: HomePage,
 
       meta: {
-        title: "Yasmin — Digital Experience Designer",
+        title: "Digital Experience Designer | UX, UI & Frontend — Yasmin",
 
         description:
-          "Portfolio of Yasmin, a Digital Experience Designer combining UX, UI design, accessibility and front-end development to create thoughtful digital experiences.",
+          "Portfolio of Yasmin, a Digital Experience Designer focused on UX/UI, interaction design, accessibility and front-end development.",
       },
     },
 
@@ -207,18 +198,24 @@ router.afterEach(async (to) => {
 
   const canonicalUrl = new URL(to.path, siteUrl).href;
 
-  /* Page title */
+  /* =======================================
+     PAGE TITLE
+  ======================================= */
 
   document.title = title;
 
-  /* Standard description */
+  /* =======================================
+     META DESCRIPTION
+  ======================================= */
 
   setMetaTag('meta[name="description"]', {
     name: "description",
     content: description,
   });
 
-  /* Open Graph */
+  /* =======================================
+     OPEN GRAPH
+  ======================================= */
 
   setMetaTag('meta[property="og:title"]', {
     property: "og:title",
@@ -245,7 +242,9 @@ router.afterEach(async (to) => {
     content: "Yasmin Portfolio",
   });
 
-  /* Twitter / social */
+  /* =======================================
+     TWITTER / SOCIAL
+  ======================================= */
 
   setMetaTag('meta[name="twitter:card"]', {
     name: "twitter:card",
@@ -259,14 +258,19 @@ router.afterEach(async (to) => {
 
   setMetaTag('meta[name="twitter:description"]', {
     name: "twitter:description",
+
     content: description,
   });
 
-  /* Canonical URL */
+  /* =======================================
+     CANONICAL URL
+  ======================================= */
 
   setCanonical(canonicalUrl);
 
-  /* Refresh GSAP after route change */
+  /* =======================================
+     REFRESH GSAP
+  ======================================= */
 
   await nextTick();
 
