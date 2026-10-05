@@ -205,13 +205,13 @@ const testTasks = [
       <div class="case-hero__tags reveal">
         <span>UX/UI</span>
         <span>Interaction design</span>
-        <span>Usability</span>
+        <span>Usability testing</span>
         <span>Prototype</span>
       </div>
 
       <div class="case-hero__layout">
         <div class="case-hero__copy">
-          <p class="case-label reveal">School project</p>
+          <p class="case-label reveal">UX/UI case study</p>
 
           <h1 id="lumiere-title" class="reveal">Cinema Lumière</h1>
 
@@ -220,14 +220,16 @@ const testTasks = [
           </h2>
 
           <p class="case-hero__intro reveal">
-            For this school project, we designed a mobile app concept for Cinema
-            Lumière Mechelen.
+            For this school project, we designed a UX/UI mobile app concept for
+            Cinema Lumière Mechelen, focused on making the cinema experience
+            clearer, smoother and easier to navigate.
           </p>
 
           <p class="case-hero__intro reveal">
-            The focus was not only on creating screens, but on learning how to
-            analyse usability problems, apply UX laws and heuristics, structure
-            user flows and validate design decisions through testing.
+            The project explored interaction design, information architecture,
+            prototyping and usability testing. We analysed existing user
+            journeys, applied UX laws and heuristics, structured user flows and
+            validated design decisions with real participants.
           </p>
         </div>
 
@@ -262,7 +264,7 @@ const testTasks = [
     <section class="case-wide-visual">
       <img
         src="/images/lumiere/moodboard-01.jpg"
-        alt="Cinema Lumière mobile app project"
+        alt="Cinema Lumière UX/UI mobile app case study"
       />
     </section>
 
@@ -282,9 +284,9 @@ const testTasks = [
 
         <div>
           <p class="case-large-copy reveal">
-            Before designing the app, we first had to understand where users
-            could experience friction on the existing Cinema Lumière mobile
-            website.
+            Before designing the mobile app, we first had to understand where
+            users could experience friction on the existing Cinema Lumière
+            mobile website.
           </p>
 
           <p class="reveal">
@@ -294,8 +296,8 @@ const testTasks = [
           </p>
 
           <p class="reveal">
-            The challenge was to translate those findings into a mobile app that
-            felt more intuitive, better structured and easier to use.
+            The challenge was to translate those findings into a UX/UI concept
+            that felt more intuitive, better structured and easier to use.
           </p>
         </div>
       </div>
@@ -313,13 +315,13 @@ const testTasks = [
       <div class="section-number reveal">02</div>
 
       <div class="case-text-grid">
-        <h2 class="reveal">Research & benchmark</h2>
+        <h2 class="reveal">Research &amp; benchmark</h2>
 
         <div>
           <p class="case-large-copy reveal">
             We compared Cinema Lumière with other cinema platforms to understand
-            what worked, what created friction and which patterns users already
-            knew.
+            familiar interaction patterns, usability strengths and points of
+            friction.
           </p>
 
           <p class="reveal">
@@ -335,15 +337,11 @@ const testTasks = [
       </div>
 
       <div class="law-grid">
-        <TiltSurface
-          v-for="law in uxLaws"
-          :key="law"
-          class="law-card reveal"
-          :strength="3.5"
-          :scale="1.01"
-        >
-          {{ law }}
-        </TiltSurface>
+        <div v-for="law in uxLaws" :key="law" class="law-card-wrap reveal">
+          <TiltSurface class="law-card" :strength="3.5" :scale="1.01">
+            {{ law }}
+          </TiltSurface>
+        </div>
       </div>
     </section>
 
@@ -358,7 +356,7 @@ const testTasks = [
 
       <StickyImageStack
         :images="benchmarkImages"
-        alt-prefix="Cinema Lumière benchmark"
+        alt-prefix="Cinema Lumière UX benchmarking"
       />
     </section>
 
@@ -378,13 +376,13 @@ const testTasks = [
 
         <div>
           <p class="case-large-copy reveal">
-            Before designing screens, we decided what the app actually needed to
-            do.
+            Before designing screens, we defined what the mobile app actually
+            needed to help users accomplish.
           </p>
 
           <p class="reveal">
             After benchmarking, we created a functionality list using the MoSCoW
-            method.
+            method to prioritise the most important features.
           </p>
 
           <p class="reveal">
@@ -395,45 +393,53 @@ const testTasks = [
       </div>
 
       <div class="moscow-grid">
-        <TiltSurface class="moscow-card reveal" :strength="3" :scale="1.01">
-          <span> Must have </span>
+        <div class="moscow-card-wrap reveal">
+          <TiltSurface class="moscow-card" :strength="3" :scale="1.01">
+            <span> Must have </span>
 
-          <ul>
-            <li v-for="item in mustHave" :key="item">
-              {{ item }}
-            </li>
-          </ul>
-        </TiltSurface>
+            <ul>
+              <li v-for="item in mustHave" :key="item">
+                {{ item }}
+              </li>
+            </ul>
+          </TiltSurface>
+        </div>
 
-        <TiltSurface class="moscow-card reveal" :strength="3" :scale="1.01">
-          <span> Should have </span>
+        <div class="moscow-card-wrap reveal">
+          <TiltSurface class="moscow-card" :strength="3" :scale="1.01">
+            <span> Should have </span>
 
-          <ul>
-            <li v-for="item in shouldHave" :key="item">
-              {{ item }}
-            </li>
-          </ul>
-        </TiltSurface>
+            <ul>
+              <li v-for="item in shouldHave" :key="item">
+                {{ item }}
+              </li>
+            </ul>
+          </TiltSurface>
+        </div>
 
-        <TiltSurface class="moscow-card reveal" :strength="3" :scale="1.01">
-          <span> Could have </span>
+        <div class="moscow-card-wrap reveal">
+          <TiltSurface class="moscow-card" :strength="3" :scale="1.01">
+            <span> Could have </span>
 
-          <ul>
-            <li v-for="item in couldHave" :key="item">
-              {{ item }}
-            </li>
-          </ul>
-        </TiltSurface>
+            <ul>
+              <li v-for="item in couldHave" :key="item">
+                {{ item }}
+              </li>
+            </ul>
+          </TiltSurface>
+        </div>
 
-        <TiltSurface class="moscow-card reveal" :strength="3" :scale="1.01">
-          <span> Out of scope </span>
+        <div class="moscow-card-wrap reveal">
+          <TiltSurface class="moscow-card" :strength="3" :scale="1.01">
+            <span> Out of scope </span>
 
-          <ul>
-            <li v-for="item in outOfScope" :key="item">
-              {{ item }}
-            </li>
-          </ul>
-        </TiltSurface>
+            <ul>
+              <li v-for="item in outOfScope" :key="item">
+                {{ item }}
+              </li>
+            </ul>
+          </TiltSurface>
+        </div>
       </div>
     </section>
 
@@ -473,12 +479,12 @@ const testTasks = [
 
           <p class="reveal">
             Based on the information architecture, we moved from flowcharts to
-            low-fidelity wireframes and prototypes.
+            low-fidelity wireframes and interactive prototypes.
           </p>
 
           <p class="reveal">
             We also wrote user stories and acceptance criteria to turn abstract
-            features into concrete user goals.
+            app features into concrete user goals.
           </p>
 
           <div class="design-question reveal">
@@ -508,7 +514,7 @@ const testTasks = [
 
       <StickyImageStack
         :images="prototypeImages"
-        alt-prefix="Cinema Lumière prototype"
+        alt-prefix="Cinema Lumière mobile app prototype"
       />
     </section>
 
@@ -524,11 +530,12 @@ const testTasks = [
       <div class="section-number reveal">05</div>
 
       <div class="case-text-grid">
-        <h2 class="reveal">Test</h2>
+        <h2 class="reveal">Usability testing</h2>
 
         <div>
           <p class="case-large-copy reveal">
-            I tested the high-fidelity prototype with ten participants.
+            I tested the high-fidelity UX/UI prototype with ten participants to
+            evaluate usability, navigation and the main interaction flows.
           </p>
 
           <p class="reveal">
@@ -545,21 +552,21 @@ const testTasks = [
       </div>
 
       <div class="testing-grid">
-        <TiltSurface
+        <div
           v-for="(task, index) in testTasks"
           :key="task"
-          class="testing-card reveal"
-          :strength="3"
-          :scale="1.01"
+          class="testing-card-wrap reveal"
         >
-          <span class="testing-card__number">
-            {{ String(index + 1).padStart(2, "0") }}
-          </span>
+          <TiltSurface class="testing-card" :strength="3" :scale="1.01">
+            <span class="testing-card__number">
+              {{ String(index + 1).padStart(2, "0") }}
+            </span>
 
-          <p>
-            {{ task }}
-          </p>
-        </TiltSurface>
+            <p>
+              {{ task }}
+            </p>
+          </TiltSurface>
+        </div>
       </div>
     </section>
 
@@ -588,23 +595,29 @@ const testTasks = [
       <h2 class="reveal">The main structure worked well.</h2>
 
       <div class="results-grid">
-        <TiltSurface class="result-card reveal" :strength="3" :scale="1.01">
-          <strong> 9 / 10 </strong>
+        <div class="result-card-wrap reveal">
+          <TiltSurface class="result-card" :strength="3" :scale="1.01">
+            <strong> 9 / 10 </strong>
 
-          <p>successfully completed the student ticket flow</p>
-        </TiltSurface>
+            <p>successfully completed the student ticket flow</p>
+          </TiltSurface>
+        </div>
 
-        <TiltSurface class="result-card reveal" :strength="3" :scale="1.01">
-          <strong> 100% </strong>
+        <div class="result-card-wrap reveal">
+          <TiltSurface class="result-card" :strength="3" :scale="1.01">
+            <strong> 100% </strong>
 
-          <p>found current and previous tickets</p>
-        </TiltSurface>
+            <p>found current and previous tickets</p>
+          </TiltSurface>
+        </div>
 
-        <TiltSurface class="result-card reveal" :strength="3" :scale="1.01">
-          <strong> 10 / 10 </strong>
+        <div class="result-card-wrap reveal">
+          <TiltSurface class="result-card" :strength="3" :scale="1.01">
+            <strong> 10 / 10 </strong>
 
-          <p>found and used the dark/light mode toggle</p>
-        </TiltSurface>
+            <p>found and used the dark/light mode toggle</p>
+          </TiltSurface>
+        </div>
       </div>
 
       <div class="finding-list">
@@ -644,8 +657,8 @@ const testTasks = [
           </p>
 
           <p class="reveal">
-            Most important flows already worked, so I focused on small usability
-            refinements instead of unnecessary large changes.
+            Most important user flows already worked, so I focused on smaller
+            usability refinements instead of making unnecessary large changes.
           </p>
 
           <p class="reveal">
@@ -677,7 +690,7 @@ const testTasks = [
 
       <StickyImageStack
         :images="finalImages"
-        alt-prefix="Cinema Lumière final prototype"
+        alt-prefix="Cinema Lumière refined UX/UI prototype"
       />
     </section>
 
@@ -691,19 +704,20 @@ const testTasks = [
 
         <div>
           <p class="case-large-copy reveal">
-            I contributed throughout the research and interaction-design
+            I contributed throughout the UX research and interaction design
             process.
           </p>
 
           <p class="reveal">
-            My work included benchmarking, information architecture, wireframes
-            and prototype iterations.
+            My work included benchmarking, information architecture, user flows,
+            wireframes, prototyping and design iterations.
           </p>
 
           <p class="reveal">
             Through this project, I learned how UX laws, user stories,
-            acceptance criteria and heuristics can make design decisions more
-            intentional and less based on personal preference.
+            acceptance criteria, usability testing and heuristics can make
+            design decisions more intentional and less dependent on personal
+            preference.
           </p>
         </div>
       </div>
@@ -725,17 +739,19 @@ const testTasks = [
       <div class="reflection-grid">
         <p class="reveal">
           This project helped me understand that interaction design is not only
-          about creating screens, but about building a logical experience.
+          about creating screens, but about building a logical and usable
+          digital experience.
         </p>
 
         <p class="reveal">
-          By working with UX laws, card sorting, user stories, testing and
-          heuristics, I learned how to analyse problems and improve a design
-          step by step.
+          By working with UX laws, card sorting, information architecture, user
+          stories, usability testing and heuristics, I learned how to analyse
+          problems and improve a design step by step.
         </p>
 
         <p class="reveal">
-          A good app flow needs structure before visual polish.
+          A strong mobile app experience needs a clear structure before visual
+          polish.
         </p>
 
         <p class="reveal">
@@ -753,7 +769,7 @@ const testTasks = [
       <p>Next project</p>
 
       <RouterLink to="/projects/accessibility">
-        Accessibility UCD
+        Café Crèma Accessibility
 
         <span aria-hidden="true"> ↗ </span>
       </RouterLink>
@@ -989,6 +1005,7 @@ const testTasks = [
   display: block;
 
   width: 100%;
+
   height: 100%;
 
   object-fit: cover;
@@ -1034,6 +1051,17 @@ const testTasks = [
   box-shadow: 0 20px 42px rgba(0, 0, 0, 0.06);
 }
 
+/* wrappers keep reveal and tilt transforms separate */
+
+.law-card-wrap,
+.moscow-card-wrap,
+.testing-card-wrap,
+.result-card-wrap {
+  min-width: 0;
+
+  height: 100%;
+}
+
 /* =========================================
    UX LAWS
 ========================================= */
@@ -1054,6 +1082,8 @@ const testTasks = [
   align-items: flex-end;
 
   min-height: 130px;
+
+  height: 100%;
 
   padding: 20px;
 
@@ -1077,6 +1107,8 @@ const testTasks = [
 }
 
 .moscow-card {
+  height: 100%;
+
   padding: 28px;
 
   background: #efefeb;
@@ -1169,6 +1201,8 @@ const testTasks = [
 
   min-height: 210px;
 
+  height: 100%;
+
   padding: 22px;
 
   background: #efefeb;
@@ -1222,6 +1256,8 @@ const testTasks = [
   justify-content: space-between;
 
   min-height: 250px;
+
+  height: 100%;
 
   padding: 26px;
 

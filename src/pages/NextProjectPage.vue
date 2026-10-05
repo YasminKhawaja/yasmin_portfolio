@@ -1,137 +1,100 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 
 import { useScrollReveal } from "../composables/useScrollReveal";
 
 import StickyImageStack from "../components/case/StickyImageStack.vue";
-
 import CaseProgress from "../components/case/CaseProgress.vue";
-
 import BackToTop from "../components/case/BackToTop.vue";
 import TiltSurface from "../components/ui/TiltSurface.vue";
 
 /* =========================================
-
    SECTION REFS
-
 ========================================= */
 
 const hero = ref(null);
-
 const challenge = ref(null);
-
 const processIntro = ref(null);
-
 const understand = ref(null);
-
 const define = ref(null);
-
 const ideate = ref(null);
-
 const iteration = ref(null);
-
 const build = ref(null);
-
 const testing = ref(null);
-
 const findings = ref(null);
-
 const finalResult = ref(null);
-
 const role = ref(null);
-
 const team = ref(null);
-
 const reflection = ref(null);
+
+/* =========================================
+   TEAM
+========================================= */
 
 const teammates = [
   {
     name: "Teammate 01",
     url: "https://portfolio-link-1.com",
   },
-
   {
     name: "Teammate 02",
     url: "https://portfolio-link-2.com",
   },
-
   {
     name: "Teammate 03",
     url: "https://portfolio-link-3.com",
   },
 ];
+
 /* =========================================
-
    PROGRESS STEPS
-
 ========================================= */
 
 const progressSteps = [
   {
     id: "next-intro",
-
     label: "Overview",
   },
-
   {
     id: "next-challenge",
-
     label: "Challenge",
   },
-
   {
     id: "next-understand",
-
     label: "Understand",
   },
-
   {
     id: "next-define",
-
     label: "Define",
   },
-
   {
     id: "next-ideate",
-
     label: "Ideate",
   },
-
   {
     id: "next-iteration",
-
     label: "Iteration",
   },
-
   {
     id: "next-build",
-
     label: "Build",
   },
-
   {
     id: "next-testing",
-
     label: "Testing",
   },
-
   {
     id: "next-final",
-
     label: "Final result",
   },
-
   {
     id: "next-reflection",
-
     label: "Reflection",
   },
 ];
 
 /* =========================================
-
    SCROLL REVEAL
-
 ========================================= */
 
 useScrollReveal(hero, ".reveal", {
@@ -191,103 +154,73 @@ useScrollReveal(reflection, ".reveal", {
 });
 
 /* =========================================
-
    IMAGE STACKS
-
 ========================================= */
 
 const understandImages = [
   "/images/next/moodboard-01.jpg",
-
   "/images/next/moodboard-02.jpg",
-
   "/images/next/moodboard-03.jpg",
 ];
 
 const ideateImages = [
   "/images/next/moodboard-04.jpg",
-
   "/images/next/moodboard-05.jpg",
-
   "/images/next/moodboard-06.jpg",
 ];
 
 const iterationImages = [
   "/images/next/moodboard-07.jpg",
-
   "/images/next/moodboard-08.jpg",
-
   "/images/next/moodboard-09.jpg",
 ];
 
 const buildImages = [
   "/images/next/moodboard-10.jpg",
-
   "/images/next/moodboard-11.jpg",
-
   "/images/next/moodboard-12.jpg",
 ];
 
 const testingImages = [
   "/images/next/moodboard-13.jpg",
-
   "/images/next/moodboard-14.jpg",
-
   "/images/next/moodboard-15.jpg",
 ];
 
 const finalImages = [
   "/images/next/moodboard-16.jpg",
-
   "/images/next/moodboard-17.jpg",
-
   "/images/next/moodboard-18.jpg",
 ];
 
 /* =========================================
-
    USER TESTING
-
 ========================================= */
 
 const testingTasks = [
   {
     number: "01",
-
     title: "Understand NEXT",
-
     question: "Can users explain what NEXT does?",
   },
-
   {
     number: "02",
-
     title: "Donate clothes",
-
     question: "Can users find where and how to donate?",
   },
-
   {
     number: "03",
-
     title: "Meet the team",
-
     question: "Can users find enough information about the team?",
   },
-
   {
     number: "04",
-
     title: "Register",
-
     question: "Can users find how to sign up?",
   },
-
   {
     number: "05",
-
     title: "General impression",
-
     question: "What audience and feeling does the website communicate?",
   },
 ];
@@ -295,77 +228,37 @@ const testingTasks = [
 const findingsData = [
   {
     number: "01",
-
     title: "Registration was clear",
-
     finding:
       "Users quickly found the Schrijf je in button and understood how to register.",
-
     change:
       "We kept the registration action visible and prominent in the navigation.",
   },
-
   {
     number: "02",
-
     title: "Donation information was hard to find",
-
     finding:
       "Some users expected donation information on the homepage, near activities or in a more visible call to action.",
-
     change:
       "We made donation information more visible and considered clearer entry points towards the contact page.",
   },
-
   {
     number: "03",
-
     title: "NEXT's core message came too late",
-
     finding:
       "Some users only understood what NEXT does after visiting multiple pages or reading further down the homepage.",
-
     change:
       "We moved the core message higher and simplified the explanation of NEXT's role.",
   },
-
   {
     number: "04",
-
     title: "The team section created trust, but needed more clarity",
-
     finding:
       "Users liked seeing the people behind NEXT, but names, roles and placement needed to be clearer.",
-
     change:
       "We improved the team section by making names, functions and role descriptions more visible.",
   },
 ];
-
-/* =========================================
-
-   SEO
-
-========================================= */
-
-onMounted(() => {
-  document.title = "NEXT Case Study | Yasmin";
-
-  const description =
-    "NEXT case study: branding, UX/UI, frontend development, user testing and a responsive Bludit CMS website for a safe pause space for young people.";
-
-  let meta = document.querySelector('meta[name="description"]');
-
-  if (!meta) {
-    meta = document.createElement("meta");
-
-    meta.setAttribute("name", "description");
-
-    document.head.appendChild(meta);
-  }
-
-  meta.setAttribute("content", description);
-});
 </script>
 
 <template>
@@ -379,9 +272,7 @@ onMounted(() => {
     <BackToTop />
 
     <!-- =====================================
-
          HERO
-
     ====================================== -->
 
     <section
@@ -392,11 +283,8 @@ onMounted(() => {
     >
       <div class="case-hero__tags reveal">
         <span>Branding</span>
-
-        <span>Web design</span>
-
-        <span>Frontend</span>
-
+        <span>UX/UI design</span>
+        <span>Front-end development</span>
         <span>CMS</span>
       </div>
 
@@ -412,43 +300,41 @@ onMounted(() => {
 
           <p class="case-hero__intro reveal">
             NEXT is a safe pause space for young people who temporarily cannot
-            attend school or are at risk of dropping out.
+            attend school or are at risk of dropping out. This branding and
+            website case study shows how we translated that mission into a clear
+            and trustworthy digital experience.
           </p>
 
           <p class="case-hero__intro reveal">
-            For this client project, we designed a calm brand identity and built
-            a responsive website that the client can update through Bludit CMS.
+            For this real client project, we combined branding, UX/UI design,
+            front-end development and user testing to create a responsive
+            website that the client can update through Bludit CMS.
           </p>
         </div>
 
         <div class="case-meta">
           <div class="case-meta__item reveal">
             <span>Type</span>
-
             <p>Client project</p>
           </div>
 
           <div class="case-meta__item reveal">
             <span>Team</span>
-
             <p>4 students</p>
           </div>
 
           <div class="case-meta__item reveal">
             <span>Role</span>
-
             <p>Team lead, UI design, frontend</p>
           </div>
 
           <div class="case-meta__item reveal">
             <span>Tools</span>
-
             <p>Figma, HTML, CSS, JavaScript, Bludit CMS</p>
           </div>
 
           <div class="case-meta__item reveal">
             <span>Outcome</span>
-
             <p>Selected by the client</p>
           </div>
         </div>
@@ -456,19 +342,18 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          HERO IMAGE
-
     ====================================== -->
 
     <section class="case-wide-visual">
-      <img :src="'/images/next/moodboard-01.jpg'" alt="NEXT project visual" />
+      <img
+        src="/images/next/moodboard-01.jpg"
+        alt="NEXT branding and responsive website project"
+      />
     </section>
 
     <!-- =====================================
-
          CHALLENGE
-
     ====================================== -->
 
     <section
@@ -483,8 +368,9 @@ onMounted(() => {
 
         <div>
           <p class="case-large-copy reveal">
-            The client needed a working, responsive website that explained NEXT
-            clearly without making it feel like another formal institution.
+            The client needed a responsive website and visual identity that
+            explained NEXT clearly without making the organisation feel like
+            another formal institution.
           </p>
 
           <p class="reveal">
@@ -496,9 +382,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          PROCESS INTRO
-
     ====================================== -->
 
     <section ref="processIntro" class="section process-heading">
@@ -508,9 +392,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          UNDERSTAND
-
     ====================================== -->
 
     <section
@@ -548,9 +430,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          UNDERSTAND STACK
-
     ====================================== -->
 
     <section class="stack-section">
@@ -565,9 +445,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          DEFINE
-
     ====================================== -->
 
     <section id="next-define" ref="define" class="section case-text-section">
@@ -598,40 +476,33 @@ onMounted(() => {
       <div class="goals-grid">
         <article class="goal-card reveal">
           <span>01</span>
-
           <p>Young, but not childish</p>
         </article>
 
         <article class="goal-card reveal">
           <span>02</span>
-
           <p>Professional, but not distant</p>
         </article>
 
         <article class="goal-card reveal">
           <span>03</span>
-
           <p>Playful, but calm</p>
         </article>
 
         <article class="goal-card reveal">
           <span>04</span>
-
           <p>Safe, but not heavy</p>
         </article>
 
         <article class="goal-card reveal">
           <span>05</span>
-
           <p>Warm, within a limited budget</p>
         </article>
       </div>
     </section>
 
     <!-- =====================================
-
          IDEATE
-
     ====================================== -->
 
     <section id="next-ideate" ref="ideate" class="section case-text-section">
@@ -642,8 +513,9 @@ onMounted(() => {
 
         <div>
           <p class="case-large-copy reveal">
-            We explored information architecture, navigation, page content, logo
-            directions, colours, typography and brand sheets.
+            We explored the information architecture, navigation, page content,
+            UX/UI direction, logo concepts, colours, typography and brand
+            guidelines.
           </p>
 
           <p class="reveal">
@@ -660,9 +532,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          IDEATE STACK
-
     ====================================== -->
 
     <section class="stack-section">
@@ -677,9 +547,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          ITERATION
-
     ====================================== -->
 
     <section
@@ -723,9 +591,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          ITERATION STACK
-
     ====================================== -->
 
     <section class="stack-section">
@@ -740,9 +606,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          BUILD
-
     ====================================== -->
 
     <section id="next-build" ref="build" class="section case-text-section">
@@ -753,8 +617,9 @@ onMounted(() => {
 
         <div>
           <p class="case-large-copy reveal">
-            Once the design direction was approved, we built the website as a
-            responsive site using Bludit CMS.
+            Once the UX/UI and visual direction were approved, we moved into
+            front-end development and built the responsive website using Bludit
+            CMS.
           </p>
 
           <p class="reveal">
@@ -780,9 +645,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          BUILD STACK
-
     ====================================== -->
 
     <section class="stack-section">
@@ -797,9 +660,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          USER TESTING
-
     ====================================== -->
 
     <section id="next-testing" ref="testing" class="section case-text-section">
@@ -810,8 +671,9 @@ onMounted(() => {
 
         <div>
           <p class="case-large-copy reveal">
-            We tested the website with real users and used their feedback to
-            improve clarity, content, navigation and the overall experience.
+            We tested the responsive website with real users and used their
+            feedback to improve usability, content clarity, navigation and the
+            overall user experience.
           </p>
 
           <p class="reveal">
@@ -843,9 +705,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          TESTING STACK
-
     ====================================== -->
 
     <section class="stack-section">
@@ -860,9 +720,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          KEY FINDINGS
-
     ====================================== -->
 
     <section ref="findings" class="section findings-section">
@@ -908,9 +766,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          FINAL RESULT
-
     ====================================== -->
 
     <section id="next-final" ref="finalResult" class="section final-section">
@@ -933,9 +789,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          FINAL STACK
-
     ====================================== -->
 
     <section class="stack-section">
@@ -947,9 +801,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          MY ROLE
-
     ====================================== -->
 
     <section ref="role" class="section role-section">
@@ -969,8 +821,8 @@ onMounted(() => {
 
           <p class="reveal">
             I contributed throughout the project, but my main responsibilities
-            were designing and coding the homepage, application page and contact
-            page.
+            were UX/UI design and front-end development for the homepage,
+            application page and contact page.
           </p>
 
           <p class="reveal">
@@ -982,9 +834,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          TEAM
-
     ====================================== -->
 
     <section
@@ -1003,38 +853,38 @@ onMounted(() => {
       </p>
 
       <div class="team-grid">
-        <TiltSurface
+        <div
           v-for="member in teammates"
           :key="member.name"
-          class="team-card reveal"
-          :strength="4"
-          :scale="1.012"
+          class="team-card-wrap reveal"
         >
-          <a
-            :href="member.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="team-card__link"
-            :aria-label="`Visit ${member.name}'s portfolio`"
-          >
-            <span class="team-card__arrow" aria-hidden="true">↗</span>
+          <TiltSurface class="team-card" :strength="4" :scale="1.012">
+            <a
+              :href="member.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="team-card__link"
+              :aria-label="`Visit ${member.name}'s portfolio`"
+            >
+              <span class="team-card__arrow" aria-hidden="true"> ↗ </span>
 
-            <div class="team-card__content">
-              <p>Team member</p>
+              <div class="team-card__content">
+                <p>Team member</p>
 
-              <h3>{{ member.name }}</h3>
+                <h3>
+                  {{ member.name }}
+                </h3>
 
-              <span>View portfolio</span>
-            </div>
-          </a>
-        </TiltSurface>
+                <span> View portfolio </span>
+              </div>
+            </a>
+          </TiltSurface>
+        </div>
       </div>
     </section>
 
     <!-- =====================================
-
          REFLECTION
-
     ====================================== -->
 
     <section
@@ -1074,9 +924,7 @@ onMounted(() => {
     </section>
 
     <!-- =====================================
-
          NEXT PROJECT
-
     ====================================== -->
 
     <section class="section next-project">
@@ -1093,9 +941,7 @@ onMounted(() => {
 
 <style scoped>
 /* =========================================
-
    PAGE
-
 ========================================= */
 
 .case-page {
@@ -1107,13 +953,11 @@ onMounted(() => {
 
   color: var(--color-text);
 
-  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-family: var(--font-body);
 }
 
 /* =========================================
-
    LABELS
-
 ========================================= */
 
 .case-label,
@@ -1128,9 +972,7 @@ onMounted(() => {
 }
 
 /* =========================================
-
    COMMON
-
 ========================================= */
 
 .case-text-section {
@@ -1192,9 +1034,7 @@ onMounted(() => {
 }
 
 /* =========================================
-
    HERO
-
 ========================================= */
 
 .case-hero {
@@ -1270,9 +1110,7 @@ onMounted(() => {
 }
 
 /* =========================================
-
    META
-
 ========================================= */
 
 .case-meta {
@@ -1310,9 +1148,7 @@ onMounted(() => {
 }
 
 /* =========================================
-
    HERO VISUAL
-
 ========================================= */
 
 .case-wide-visual {
@@ -1340,9 +1176,7 @@ onMounted(() => {
 }
 
 /* =========================================
-
    PROCESS
-
 ========================================= */
 
 .process-heading {
@@ -1366,9 +1200,7 @@ onMounted(() => {
 }
 
 /* =========================================
-
    DESIGN QUESTION
-
 ========================================= */
 
 .design-question {
@@ -1402,9 +1234,7 @@ onMounted(() => {
 }
 
 /* =========================================
-
    GOALS
-
 ========================================= */
 
 .goals-grid {
@@ -1446,9 +1276,7 @@ onMounted(() => {
 }
 
 /* =========================================
-
    STACKS
-
 ========================================= */
 
 .stack-section {
@@ -1460,9 +1288,7 @@ onMounted(() => {
 }
 
 /* =========================================
-
    BUILD
-
 ========================================= */
 
 .build-points {
@@ -1486,9 +1312,7 @@ onMounted(() => {
 }
 
 /* =========================================
-
    TESTING
-
 ========================================= */
 
 .testing-grid {
@@ -1540,9 +1364,7 @@ onMounted(() => {
 }
 
 /* =========================================
-
    FINDINGS
-
 ========================================= */
 
 .findings-section > h2 {
@@ -1624,9 +1446,7 @@ onMounted(() => {
 }
 
 /* =========================================
-
    FINAL
-
 ========================================= */
 
 .final-section {
@@ -1668,9 +1488,7 @@ onMounted(() => {
 }
 
 /* =========================================
-
    ROLE
-
 ========================================= */
 
 .role-section {
@@ -1680,9 +1498,135 @@ onMounted(() => {
 }
 
 /* =========================================
+   TEAM
+========================================= */
 
+.team-section {
+  padding-top: 40px;
+
+  padding-bottom: 170px;
+}
+
+.team-section > h2 {
+  max-width: 760px;
+
+  margin-top: 22px;
+
+  font-size: clamp(42px, 6vw, 82px);
+
+  line-height: 0.95;
+
+  letter-spacing: -0.06em;
+
+  text-transform: uppercase;
+}
+
+.team-intro {
+  max-width: 700px;
+
+  margin-top: 28px;
+
+  font-size: 15px;
+
+  line-height: 1.65;
+
+  opacity: 0.78;
+}
+
+.team-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+
+  margin-top: 55px;
+}
+
+.team-card-wrap {
+  min-width: 0;
+
+  height: 100%;
+}
+
+.team-card {
+  position: relative;
+
+  min-height: 240px;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(17, 17, 17, 0.055);
+
+  border-radius: 28px;
+
+  background: rgba(211, 217, 189, 0.28);
+}
+
+.team-card__link {
+  position: relative;
+
+  display: flex;
+
+  min-height: 240px;
+
+  height: 100%;
+
+  padding: 26px;
+
+  color: inherit;
+
+  text-decoration: none;
+}
+
+.team-card__arrow {
+  position: absolute;
+
+  top: 24px;
+
+  right: 26px;
+
+  font-size: 20px;
+}
+
+.team-card__content {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  width: 100%;
+}
+
+.team-card__content > p {
+  font-size: 11px;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  opacity: 0.5;
+}
+
+.team-card__content h3 {
+  font-size: 22px;
+
+  line-height: 1.15;
+}
+
+.team-card__content > span {
+  font-size: 13px;
+
+  opacity: 0.65;
+}
+
+/* =========================================
    REFLECTION
-
 ========================================= */
 
 .reflection-section {
@@ -1726,9 +1670,7 @@ onMounted(() => {
 }
 
 /* =========================================
-
    NEXT PROJECT
-
 ========================================= */
 
 .next-project {
@@ -1751,6 +1693,7 @@ onMounted(() => {
 
 .next-project a {
   display: flex;
+
   align-items: center;
 
   justify-content: space-between;
@@ -1777,9 +1720,7 @@ onMounted(() => {
 }
 
 /* =========================================
-
    TABLET
-
 ========================================= */
 
 @media (max-width: 950px) {
@@ -1812,9 +1753,7 @@ onMounted(() => {
 }
 
 /* =========================================
-
    MOBILE
-
 ========================================= */
 
 @media (max-width: 650px) {

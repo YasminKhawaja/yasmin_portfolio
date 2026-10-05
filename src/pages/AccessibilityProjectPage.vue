@@ -159,33 +159,50 @@ const finalImages = [
 const auditIssues = [
   {
     number: "01",
+
     title: "Interruptive reservation pop-up",
+
     text: "The reservation pop-up appeared repeatedly while navigating between pages and interrupted the user flow.",
   },
+
   {
     number: "02",
+
     title: "Missing practical information",
+
     text: "The website had a lot of whitespace, but no clear footer with important information.",
   },
+
   {
     number: "03",
+
     title: "Inconsistent menu",
-    text: "The menu page looked visually different from the rest of the website.",
+
+    text: "The menu page looked visually different from the rest of the website, which reduced consistency.",
   },
+
   {
     number: "04",
+
     title: "Weak brand recognition",
+
     text: "The site used very little colour, which made the visual identity less recognisable.",
   },
+
   {
     number: "05",
+
     title: "Insufficient contrast",
-    text: "Some original colour combinations did not meet WCAG contrast requirements.",
+
+    text: "Some original colour combinations did not meet WCAG AA contrast requirements.",
   },
+
   {
     number: "06",
+
     title: "Unclear ordering structure",
-    text: "The menu and ordering experience needed clearer hierarchy and actions.",
+
+    text: "The menu and ordering experience needed a clearer hierarchy, labels and actions.",
   },
 ];
 
@@ -211,32 +228,49 @@ const wcagPoints = [
 const keyDecisions = [
   {
     number: "01",
+
     title: "Replace the pop-up",
+
     text: "The recurring reservation pop-up was replaced with a visible call-to-action so users can choose when they want to reserve.",
   },
+
   {
     number: "02",
+
     title: "Improve colour contrast",
+
     text: "The original palette did not meet WCAG requirements, so I introduced stronger accessible colours while keeping the identity warm.",
   },
+
   {
     number: "03",
+
     title: "Make the menu easier to scan",
-    text: "Food and drinks were separated and grouped by category to create a clearer hierarchy.",
+
+    text: "Food and drinks were separated and grouped by category to create a clearer information hierarchy.",
   },
+
   {
     number: "04",
+
     title: "Create one visual system",
-    text: "The menu and other pages were redesigned with one consistent style.",
+
+    text: "The menu and other pages were redesigned using one consistent visual and interaction system.",
   },
+
   {
     number: "05",
+
     title: "Add practical information",
+
     text: "A fuller footer was added with important information and a link to the accessibility statement.",
   },
+
   {
     number: "06",
+
     title: "Redesign the order flow",
+
     text: "Buttons, prices and actions became more visible, with clearer Details and + actions.",
   },
 ];
@@ -262,12 +296,12 @@ const keyDecisions = [
         <span>Accessibility</span>
         <span>UX/UI</span>
         <span>WCAG AA</span>
-        <span>Mobile redesign</span>
+        <span>Inclusive design</span>
       </div>
 
       <div class="case-hero__layout">
         <div class="case-hero__copy">
-          <p class="case-label reveal">User Centered Design</p>
+          <p class="case-label reveal">Accessibility case study</p>
 
           <h1 id="accessibility-title" class="reveal">Café Crèma</h1>
 
@@ -277,40 +311,36 @@ const keyDecisions = [
 
           <p class="case-hero__intro reveal">
             For this User Centered Design project, I redesigned the mobile
-            website of Café Crèma with a focus on accessibility and WCAG
-            guidelines.
+            website of Café Crèma with a focus on accessibility, inclusive
+            design and WCAG AA guidelines.
           </p>
 
           <p class="case-hero__intro reveal">
-            The goal was not only to make the website visually stronger, but
-            also clearer, more consistent and easier to use for different types
-            of users.
+            The goal was not only to create a stronger visual experience, but
+            also to improve usability, colour contrast, navigation, content
+            structure and responsiveness for different users.
           </p>
         </div>
 
         <div class="case-meta">
           <div class="case-meta__item reveal">
             <span>Type</span>
-
             <p>School project</p>
           </div>
 
           <div class="case-meta__item reveal">
             <span>Focus</span>
-
-            <p>WCAG AA, mobile accessibility, contrast, navigation</p>
+            <p>WCAG AA, mobile accessibility, UX/UI, navigation</p>
           </div>
 
           <div class="case-meta__item reveal">
             <span>Tools</span>
-
             <p>Figma, WCAG guidelines, contrast plugin</p>
           </div>
 
           <div class="case-meta__item reveal">
             <span>Outcome</span>
-
-            <p>Accessible mobile website redesign</p>
+            <p>Accessible responsive website redesign</p>
           </div>
         </div>
       </div>
@@ -323,7 +353,7 @@ const keyDecisions = [
     <section class="case-wide-visual">
       <img
         src="/images/accessibility/moodboard-01.jpg"
-        alt="Café Crèma accessibility redesign"
+        alt="Café Crèma accessible mobile website redesign"
       />
     </section>
 
@@ -343,24 +373,25 @@ const keyDecisions = [
 
         <div>
           <p class="case-large-copy reveal">
-            The original website looked minimal and simple, but several details
-            made the experience less clear and less accessible.
+            The original website looked minimal and simple, but several UX and
+            accessibility issues made the experience less clear and harder to
+            use.
           </p>
 
           <p class="reveal">
             A reservation pop-up appeared repeatedly when navigating between
-            pages, which interrupted the flow.
+            pages, which interrupted the user flow.
           </p>
 
           <p class="reveal">
             The website also lacked a clear footer, the menu felt visually
-            disconnected and several original colours did not meet WCAG contrast
-            requirements.
+            disconnected and several original colour combinations did not meet
+            WCAG AA contrast requirements.
           </p>
 
           <p class="reveal">
-            The challenge was to redesign the mobile experience while keeping
-            the identity of Café Crèma.
+            The challenge was to create a more accessible mobile experience
+            without losing the recognisable identity of Café Crèma.
           </p>
         </div>
       </div>
@@ -382,17 +413,18 @@ const keyDecisions = [
 
         <div>
           <p class="case-large-copy reveal">
-            Accessibility is much more than colour contrast.
+            Accessible web design is about much more than colour contrast.
           </p>
 
           <p class="reveal">
-            Before redesigning, I first learned how WCAG guidelines can be
-            applied to digital interfaces.
+            Before redesigning the website, I first studied how WCAG guidelines
+            can be applied to real digital interfaces and user interactions.
           </p>
 
           <p class="reveal">
-            I looked at contrast, reading order, text resizing, form input
-            purpose, consistent navigation, focus order and status messages.
+            I looked at colour contrast, reading order, text resizing, form
+            input purpose, consistent navigation, focus order, status messages
+            and alternative text.
           </p>
         </div>
       </div>
@@ -413,7 +445,7 @@ const keyDecisions = [
     ====================================== -->
 
     <section id="accessibility-audit" ref="audit" class="section audit-section">
-      <p class="case-label reveal">Existing experience</p>
+      <p class="case-label reveal">Accessibility audit</p>
 
       <h2 class="audit-title reveal">What needed improvement?</h2>
 
@@ -471,23 +503,23 @@ const keyDecisions = [
 
         <div>
           <p class="case-large-copy reveal">
-            The redesign needed to feel clearer, more consistent and more useful
-            without losing the café's identity.
+            The redesign needed to feel clearer, more consistent and more
+            accessible without losing the café's identity.
           </p>
 
           <p class="reveal">
             Users needed to quickly find the menu, understand the content,
             contact the café and move through the website without unnecessary
-            interruptions.
+            interruptions or barriers.
           </p>
 
           <div class="design-question reveal">
             <span> Design direction </span>
 
             <p>
-              Create a warmer and more recognisable visual system, while
-              improving accessibility, navigation and the menu and ordering
-              experience.
+              Create a warmer and more recognisable visual system while
+              improving accessibility, navigation, content hierarchy and the
+              menu and ordering experience.
             </p>
           </div>
         </div>
@@ -510,13 +542,13 @@ const keyDecisions = [
 
         <div>
           <p class="case-large-copy reveal">
-            I improved the structure first, before moving into the final visual
-            design.
+            I improved the UX structure first before moving into the final
+            visual design.
           </p>
 
           <p class="reveal">
-            I started with low-fi and mid-fi designs before creating the
-            high-fidelity version.
+            I started with low-fidelity and mid-fidelity designs before creating
+            the high-fidelity accessible interface.
           </p>
 
           <p class="reveal">
@@ -525,7 +557,8 @@ const keyDecisions = [
           </p>
 
           <p class="reveal">
-            I expanded the navigation and kept it consistent across pages.
+            I expanded the navigation and kept the structure and interaction
+            patterns consistent across pages.
           </p>
 
           <p class="reveal">
@@ -547,7 +580,7 @@ const keyDecisions = [
 
       <StickyImageStack
         :images="redesignImages"
-        alt-prefix="Café Crèma wireframes and redesign"
+        alt-prefix="Café Crèma accessible wireframes and redesign"
       />
     </section>
 
@@ -567,18 +600,19 @@ const keyDecisions = [
 
         <div>
           <p class="case-large-copy reveal">
-            After redesigning, I checked the interface against several WCAG
-            criteria.
+            After redesigning the interface, I checked the experience against
+            several WCAG accessibility criteria.
           </p>
 
           <p class="reveal">
             Meaningful images received descriptive alt text, while decorative
-            images used empty alt attributes.
+            images used empty alt attributes so assistive technology can ignore
+            them.
           </p>
 
           <p class="reveal">
-            I tested the colour combinations using a Figma contrast plugin and
-            introduced colours that meet WCAG AA.
+            I tested colour combinations using a Figma contrast plugin and
+            introduced colours that meet WCAG AA contrast requirements.
           </p>
 
           <p class="reveal">
@@ -588,8 +622,9 @@ const keyDecisions = [
           </p>
 
           <p class="reveal">
-            Consistent icons, focus order and status messages were also taken
-            into account.
+            Consistent navigation, keyboard focus order and status messages were
+            also taken into account as part of the accessible interaction
+            design.
           </p>
         </div>
       </div>
@@ -615,7 +650,7 @@ const keyDecisions = [
 
       <StickyImageStack
         :images="accessibilityImages"
-        alt-prefix="Café Crèma WCAG accessibility checks"
+        alt-prefix="Café Crèma WCAG AA accessibility checks"
       />
     </section>
 
@@ -635,18 +670,20 @@ const keyDecisions = [
 
         <div>
           <p class="case-large-copy reveal">
-            Accessibility also means making sure the interface remains usable
-            when the context changes.
+            Accessibility also means making sure an interface remains usable
+            when the screen size and context change.
           </p>
 
           <p class="reveal">
-            Besides the regular mobile version, I designed a landscape layout
-            for users who rotate their device or work on a tablet.
+            Besides the regular mobile version, I designed a responsive
+            landscape layout for users who rotate their device or work on a
+            tablet.
           </p>
 
           <p class="reveal">
             The content scales without disappearing, overlapping or becoming
-            difficult to read.
+            difficult to read, helping the experience remain clear across
+            different layouts.
           </p>
         </div>
       </div>
@@ -663,7 +700,7 @@ const keyDecisions = [
 
       <StickyImageStack
         :images="responsiveImages"
-        alt-prefix="Café Crèma responsive design"
+        alt-prefix="Café Crèma accessible responsive design"
       />
     </section>
 
@@ -672,7 +709,7 @@ const keyDecisions = [
     ====================================== -->
 
     <section ref="decisions" class="section decisions-section">
-      <p class="case-label reveal">Key decisions</p>
+      <p class="case-label reveal">Key accessibility decisions</p>
 
       <h2 class="reveal">Small changes can remove big barriers.</h2>
 
@@ -708,7 +745,7 @@ const keyDecisions = [
       ref="finalResult"
       class="section final-section"
     >
-      <p class="case-label reveal">Final result</p>
+      <p class="case-label reveal">Final accessible redesign</p>
 
       <h2 class="reveal">
         A clearer, more consistent and more accessible Café Crèma experience.
@@ -740,7 +777,7 @@ const keyDecisions = [
 
       <StickyImageStack
         :images="finalImages"
-        alt-prefix="Café Crèma final accessible redesign"
+        alt-prefix="Café Crèma final accessible website redesign"
       />
     </section>
 
@@ -759,23 +796,26 @@ const keyDecisions = [
 
       <div class="reflection-grid">
         <p class="reveal">
-          This project taught me that accessibility is not something you add at
-          the end.
+          This project taught me that accessibility should be part of the design
+          process from the beginning instead of something that is added at the
+          end.
         </p>
 
         <p class="reveal">
-          It influences colours, typography, navigation, content structure,
-          forms, feedback and responsiveness.
+          Accessible web design influences colour, typography, navigation,
+          content structure, forms, interaction feedback and responsive
+          behaviour.
         </p>
 
         <p class="reveal">
           I also learned that a minimal interface is not automatically an
-          accessible interface.
+          accessible or user-friendly interface.
         </p>
 
         <p class="reveal">
-          By applying WCAG criteria, I learned to make design decisions that are
-          more inclusive and easier to use for everyone.
+          By applying WCAG AA criteria and inclusive design principles, I
+          learned to make UX/UI decisions that remove barriers and create a
+          clearer experience for more people.
         </p>
       </div>
 
@@ -1032,6 +1072,7 @@ const keyDecisions = [
   display: block;
 
   width: 100%;
+
   height: 100%;
 
   object-fit: cover;

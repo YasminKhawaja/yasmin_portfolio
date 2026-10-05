@@ -19,13 +19,14 @@ const projects = [
   {
     title: "NEXT",
 
-    description: "Branding and a website for a real client.",
+    description:
+      "A real client case study combining branding, UX/UI design, front-end development and a responsive CMS website.",
 
     image: "/images/projects/next.jpg",
 
-    alt: "NEXT branding and website project",
+    alt: "NEXT branding and responsive website case study",
 
-    tags: ["Branding", "Web Design", "Frontend", "CMS", "Client Work"],
+    tags: ["Branding", "UX/UI", "Web Design", "Frontend", "CMS", "Client Work"],
 
     path: "/projects/next",
   },
@@ -34,11 +35,11 @@ const projects = [
     title: "Cinema Lumière App",
 
     description:
-      "A mobile app concept focused on creating a smoother cinema experience.",
+      "A UX/UI and interaction design case study for a mobile cinema app, including research, prototyping and usability testing.",
 
     image: "/images/projects/lumiere.jpg",
 
-    alt: "Cinema Lumière mobile app project",
+    alt: "Cinema Lumière mobile app UX/UI case study",
 
     tags: ["UX/UI", "Interaction Design", "Usability", "Prototype"],
 
@@ -46,16 +47,16 @@ const projects = [
   },
 
   {
-    title: "Accessibility UCD",
+    title: "Café Crèma Accessibility",
 
     description:
-      "Exploring accessibility and inclusive design through a user-centred design process.",
+      "An accessibility-focused UX case study exploring WCAG AA, inclusive design and user-centred design principles.",
 
     image: "/images/projects/accessibility.jpg",
 
-    alt: "Accessibility user-centred design project",
+    alt: "Café Crèma accessibility and inclusive design case study",
 
-    tags: ["User Research", "Accessibility", "Inclusive Design", "UCD"],
+    tags: ["User Research", "Accessibility", "Inclusive Design", "WCAG", "UCD"],
 
     path: "/projects/accessibility",
   },
@@ -70,7 +71,7 @@ const explorations = [
     title: "Matcha Stand",
 
     description:
-      "A playful branding and digital design exploration inspired by calm colour, atmosphere and identity.",
+      "A playful branding and digital design exploration centred around calm colour, visual identity and web design.",
 
     tags: ["Branding", "Visual Design", "Coming soon"],
 
@@ -81,9 +82,9 @@ const explorations = [
     title: "Reading Tracker",
 
     description:
-      "A mobile concept exploring how small interactions can make reading habits feel lighter and more rewarding.",
+      "A UX/UI mobile app concept exploring how small interactions can make reading habits feel lighter and more rewarding.",
 
-    tags: ["UX/UI", "App Design", "Coming soon"],
+    tags: ["UX/UI", "App Design", "Interaction", "Coming soon"],
 
     gradient: "linear-gradient(145deg, #dddbea 0%, #f0eeee 48%, #c5c4d3 100%)",
   },
@@ -92,9 +93,14 @@ const explorations = [
     title: "Gachapon Machine",
 
     description:
-      "A playful interaction experiment inspired by physical vending machines and small moments of surprise.",
+      "A playful interaction design and creative coding experiment inspired by physical vending machines and moments of surprise.",
 
-    tags: ["Interaction", "Creative Coding", "Coming soon"],
+    tags: [
+      "Interaction Design",
+      "Creative Coding",
+      "Visual Design",
+      "Coming soon",
+    ],
 
     gradient: "linear-gradient(145deg, #eee5dc 0%, #f4f0ea 52%, #d9c7bb 100%)",
   },
@@ -113,16 +119,15 @@ const explorations = [
       ====================================== -->
 
       <header class="projects-header">
-        <p class="projects-eyebrow reveal">Selected work</p>
+        <p class="projects-eyebrow reveal">UX/UI portfolio</p>
 
         <h1 id="projects-title" class="reveal">Projects</h1>
 
         <p class="projects-intro reveal">
-          A selection of projects where I explored branding, UX/UI,
-          accessibility and front-end development. Each project reflects a
-          different part of my process: understanding people, shaping clear
-          digital experiences and turning ideas into thoughtful, working
-          designs.
+          A selection of UX/UI, interaction design, accessibility, branding and
+          front-end projects. These case studies show how I research user needs,
+          structure digital experiences, create interfaces, test ideas and turn
+          concepts into working designs.
         </p>
       </header>
 
@@ -135,8 +140,8 @@ const explorations = [
           <h2 class="reveal">Case studies</h2>
 
           <p class="reveal">
-            Finished projects with a deeper look into my process, decisions and
-            outcomes.
+            Finished digital design projects with a deeper look into my process,
+            UX decisions, visual direction, testing and outcomes.
           </p>
         </div>
 
@@ -155,22 +160,26 @@ const explorations = [
 
       <div class="projects-group projects-group--explorations">
         <div class="projects-group__heading">
-          <p class="projects-eyebrow reveal">In progress</p>
+          <p class="projects-eyebrow reveal">Coming soon</p>
 
           <h2 class="reveal">More explorations</h2>
 
           <p class="reveal">
-            Smaller ideas and experiments I would love to develop further when I
-            have the time.
+            Smaller branding, UX/UI and interaction design experiments that I
+            would like to develop into fuller projects in the future.
           </p>
         </div>
 
         <div class="projects-grid">
-          <TiltCard
+          <div
             v-for="project in explorations"
             :key="project.title"
-            v-bind="project"
-          />
+            class="exploration-item"
+          >
+            <TiltCard v-bind="project" />
+
+            <span class="exploration-status"> Coming soon </span>
+          </div>
         </div>
       </div>
     </section>
@@ -190,6 +199,8 @@ const explorations = [
   background: var(--color-bg);
 
   color: var(--color-text);
+
+  font-family: var(--font-body);
 }
 
 /* =========================================
@@ -318,6 +329,45 @@ const explorations = [
   position: relative;
 
   padding-top: 10px;
+}
+
+.exploration-item {
+  position: relative;
+
+  min-width: 0;
+}
+
+.exploration-status {
+  position: absolute;
+
+  top: 18px;
+  right: 18px;
+
+  z-index: 5;
+
+  padding: 8px 14px;
+
+  border: 1px solid rgba(17, 17, 17, 0.08);
+
+  border-radius: 999px;
+
+  background: rgba(249, 249, 249, 0.88);
+
+  color: #111111;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+
+  pointer-events: none;
+
+  backdrop-filter: blur(8px);
+
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* =========================================

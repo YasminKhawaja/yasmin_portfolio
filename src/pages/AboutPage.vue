@@ -59,9 +59,9 @@ const rippleTimers = new Set();
 
 function createRipple(event) {
   /*
-    Op touch devices laten we dit rustig.
-    De FallingDog en scroll reveals zijn
-    daar al genoeg beweging.
+    Keep this interaction quiet on touch devices.
+    The FallingDog and scroll reveals already
+    provide enough movement there.
   */
 
   if (window.matchMedia("(hover: none), (pointer: coarse)").matches) {
@@ -75,8 +75,8 @@ function createRipple(event) {
   const now = performance.now();
 
   /*
-    Voorkomt dat we honderden ripples
-    per seconde maken.
+    Prevent hundreds of ripples
+    from being created every second.
   */
 
   if (now - lastRippleTime < 120) {
@@ -88,7 +88,6 @@ function createRipple(event) {
   const rect = target.getBoundingClientRect();
 
   const x = event.clientX - rect.left;
-
   const y = event.clientY - rect.top;
 
   const id = rippleId++;
@@ -116,7 +115,7 @@ const careItems = [
   {
     title: "User-friendly",
 
-    text: "I want people to understand and use a design without having to think too much about how it works.",
+    text: "I want people to understand and use a digital experience without having to think too much about how it works.",
 
     type: "water",
   },
@@ -124,7 +123,7 @@ const careItems = [
   {
     title: "Intuitive",
 
-    text: "I care about creating experiences that feel natural and make sense to the user.",
+    text: "I care about creating UX and interactions that feel natural, accessible and easy to understand.",
 
     type: "leaf",
   },
@@ -132,7 +131,7 @@ const careItems = [
   {
     title: "A good feeling",
 
-    text: "Good design should not only work. It should also leave the user with a positive feeling.",
+    text: "Good design should not only work well. It should also leave the user with a positive and memorable feeling.",
 
     type: "lotus",
   },
@@ -176,14 +175,15 @@ onBeforeUnmount(() => {
         <h1 id="about-title" class="reveal">Who is Yasmin</h1>
 
         <p class="reveal">
-          I’m Yasmin, a Digital Experience Design student with a creative mind
-          and a slightly nerdy side. Outside of design, I enjoy watching series
-          and anime and collecting cute little trinkets.
+          I’m Yasmin, a Digital Experience Design student interested in UX/UI,
+          interaction design, accessibility and front-end development. I enjoy
+          combining clear structure with a soft and playful visual style.
         </p>
 
         <p class="reveal">
-          I’m friendly and quiet in person, but I’m also resilient and
-          determined when I set my mind to something.
+          I have a creative mind and a slightly nerdy side. Outside of design, I
+          enjoy watching series and anime, collecting cute little trinkets and
+          exploring visual ideas that often find their way back into my work.
         </p>
       </div>
 
@@ -202,7 +202,6 @@ onBeforeUnmount(() => {
           class="about-ripple"
           :style="{
             left: ripple.x + 'px',
-
             top: ripple.y + 'px',
           }"
         ></span>
@@ -243,15 +242,16 @@ onBeforeUnmount(() => {
 
         <div class="why-copy">
           <p class="reveal">
-            I enjoy the entire design process, from researching and finding
-            inspiration to designing, testing, getting feedback and redesigning.
+            I enjoy the entire UX and design process, from researching users and
+            finding inspiration to creating interfaces, prototyping, testing,
+            collecting feedback and improving the result.
           </p>
 
           <p class="reveal">
             What I like most is having the freedom to explore ideas and turn
-            them into something tangible. I enjoy finding the balance between
-            something that looks beautiful and something that feels clear and
-            natural to use.
+            them into something tangible. I enjoy finding the balance between a
+            strong visual identity and a digital experience that feels clear,
+            accessible and natural to use.
           </p>
         </div>
       </div>
@@ -264,12 +264,12 @@ onBeforeUnmount(() => {
     <section
       ref="care"
       class="section care-section"
-      aria-labelledby="care-title"
+      aria-label="What I care about"
     >
       <SectionHeading
         eyebrow="Design values"
         title="What I care about"
-        intro="The things I keep coming back to when I design: clarity, intuition and how an experience makes someone feel."
+        intro="The things I keep coming back to when I design digital experiences: clarity, accessibility, intuitive interaction and how an experience makes someone feel."
       />
 
       <div class="care-grid">
@@ -349,9 +349,9 @@ onBeforeUnmount(() => {
             <h3>Take a step back</h3>
 
             <p>
-              When I run into a problem, I like to take a step back first. I
-              give myself time to think, do research and look for different
-              possible solutions.
+              When I run into a design problem, I like to take a step back
+              first. I give myself time to research the context and user needs,
+              organise information and explore different possible solutions.
             </p>
           </div>
         </div>
@@ -364,8 +364,8 @@ onBeforeUnmount(() => {
 
             <p>
               I like exploring different ideas instead of immediately committing
-              to one solution. Testing, feedback and redesigning are part of the
-              process.
+              to one solution. Prototyping, user testing, feedback and iteration
+              are important parts of my design process.
             </p>
           </div>
         </div>
@@ -379,14 +379,16 @@ onBeforeUnmount(() => {
         <h2 class="about-section-title reveal">What I’m growing into</h2>
 
         <p class="reveal">
-          I’m still growing as a designer and there are many things I want to
-          explore further. I want to become more confident in coding and make
-          accessibility an even more natural part of the way I design.
+          I’m still growing as a Digital Experience Designer, and there are many
+          areas I want to explore further. I want to become more confident in
+          front-end development and make accessibility an even more natural part
+          of my UX/UI design process.
         </p>
 
         <p class="reveal">
-          In the future, I want to become someone people can rely on — someone
-          they can come to when they don’t know how to solve something.
+          In the future, I want to become a designer people can rely on: someone
+          who can research a problem, structure it clearly and turn ideas into
+          thoughtful digital experiences that work for real people.
         </p>
 
         <div class="growing-orbit reveal" aria-hidden="true">
@@ -403,47 +405,55 @@ onBeforeUnmount(() => {
          MORE ABOUT ME
     ====================================== -->
 
-    <section ref="more" class="section more-about" aria-labelledby="more-title">
+    <section
+      ref="more"
+      class="section more-about"
+      aria-label="More about Yasmin"
+    >
       <SectionHeading eyebrow="The longer version" title="More about me" />
 
       <div class="more-about__grid">
         <div>
           <p class="reveal">
-            I’m Yasmin, a student who enjoys creating calm, thoughtful and
-            user-friendly digital experiences. My path into design wasn’t
-            completely straightforward.
+            I’m Yasmin, a Digital Experience Design student who enjoys creating
+            calm, thoughtful and user-friendly digital experiences. My interests
+            include UX/UI, interaction design, visual design, accessibility and
+            front-end development.
           </p>
 
           <p class="reveal">
             Before studying Digital Experience Design, I studied Business
             Organisation because I thought I wanted to become self-employed.
-            Eventually I realised that I wanted something more creative.
+            Eventually, I realised that I wanted to combine that independent
+            mindset with something much more creative.
           </p>
 
           <p class="reveal">
-            I knew I wanted to work independently, spend a lot of time working
-            digitally and create things, but I did not yet know what that role
-            looked like.
+            I knew I wanted to work digitally, create things and solve problems,
+            but I did not yet know what that role looked like. Discovering
+            digital design helped those interests come together.
           </p>
         </div>
 
         <div>
           <p class="reveal">
-            What I enjoy most about design is the process. I like researching,
-            looking for inspiration, creating, testing, receiving feedback and
-            then going back to improve my work.
+            What I enjoy most about UX and design is the process. I like
+            researching, looking for inspiration, structuring information,
+            creating, prototyping, testing, receiving feedback and going back to
+            improve my work.
           </p>
 
           <p class="reveal">
             I’ve learned that being a designer also means learning to let go. A
             design is not only yours — it needs to work for the people who
-            actually use it.
+            actually use it. User needs and accessibility should guide the final
+            experience.
           </p>
 
           <p class="reveal">
-            My approach combines research with intuition. I want my designs to
-            be clear, intuitive and enjoyable to use while still having their
-            own visual character.
+            My approach combines research with intuition. I want my digital
+            experiences to feel clear, accessible and enjoyable to use while
+            still having their own visual character.
           </p>
         </div>
       </div>
