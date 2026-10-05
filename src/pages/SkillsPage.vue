@@ -41,37 +41,53 @@ useScrollReveal(bottomSkills, ".reveal", {
 const firstRow = [
   {
     number: "01",
+
     title: "UX Research",
+
     description:
-      "I use research to understand people, context and problems before deciding what the interface should become.",
+      "I use UX research to understand people, context and problems before deciding what a digital experience should become.",
+
     projects: ["NEXT", "Lumière"],
+
     tone: "sage",
   },
 
   {
     number: "02",
+
     title: "UI Design",
+
     description:
-      "I translate structure and content into calm, clear interfaces with attention to hierarchy, spacing and visual consistency.",
+      "I translate structure and content into clear UX/UI interfaces with attention to hierarchy, spacing, accessibility and visual consistency.",
+
     projects: ["NEXT", "Lumière", "Café Crèma"],
+
     tone: "light",
   },
 
   {
     number: "03",
+
     title: "Interaction Design",
+
     description:
-      "I think about what users need to do, how they move through an experience and how interactions can feel natural.",
+      "I think about what users need to do, how they move through a digital experience and how interactions can feel natural and intuitive.",
+
     projects: ["Lumière", "NEXT"],
+
     tone: "soft",
   },
 
   {
     number: "04",
+
     title: "Accessibility",
+
     description:
-      "I consider contrast, reading order, text resizing, forms, focus, navigation and responsive behaviour as part of the design process.",
+      "I consider WCAG, contrast, reading order, text resizing, forms, focus, navigation and responsive behaviour as part of the design process.",
+
     projects: ["Café Crèma"],
+
     tone: "cream",
   },
 ];
@@ -79,73 +95,105 @@ const firstRow = [
 const secondRow = [
   {
     number: "05",
+
     title: "Prototyping",
+
     description:
-      "I use prototypes to explore flows, communicate ideas and test whether interactions make sense before development.",
+      "I use interactive prototypes to explore user flows, communicate ideas and test whether UX and interaction decisions make sense before development.",
+
     projects: ["Lumière", "NEXT"],
+
     tone: "light",
   },
 
   {
     number: "06",
+
     title: "User Testing",
+
     description:
-      "I test designs with users to identify friction, validate decisions and find the smaller changes that improve an experience.",
+      "I test designs with users to identify friction, validate UX decisions and find the smaller changes that improve the overall experience.",
+
     projects: ["NEXT", "Lumière"],
+
     tone: "sage",
   },
 
   {
     number: "07",
+
     title: "Branding",
+
     description:
-      "I enjoy building visual systems through colour, typography, imagery and identity while keeping the concept connected to the project.",
+      "I enjoy building visual identities through colour, typography, imagery and brand systems while keeping the concept connected to the project and audience.",
+
     projects: ["NEXT"],
+
     tone: "soft",
   },
 
   {
     number: "08",
+
     title: "Figma",
+
     description:
-      "I use Figma for research organisation, wireframes, UI systems, responsive layouts, prototypes and developer-ready design work.",
+      "I use Figma for UX research organisation, wireframes, UI systems, responsive layouts, interactive prototypes and developer-ready design work.",
+
     projects: ["NEXT", "Lumière", "Café Crèma"],
+
     tone: "light",
   },
 
   {
     number: "09",
-    title: "Frontend",
+
+    title: "Front-end Development",
+
     description:
-      "I like turning designs into responsive interfaces and understanding what is technically possible instead of stopping at the mockup.",
+      "I turn designs into responsive digital interfaces and enjoy understanding what is technically possible instead of stopping at the mockup.",
+
     projects: ["NEXT", "Portfolio"],
+
     tone: "dark",
   },
 
   {
     number: "10",
+
     title: "HTML & CSS",
+
     description:
       "I work comfortably with semantic HTML, responsive CSS, layout systems, animations and accessible interface structure.",
+
     projects: ["NEXT", "Portfolio"],
+
     tone: "cream",
   },
 
   {
     number: "11",
+
     title: "JavaScript & Vue",
+
     description:
-      "I use JavaScript and Vue to build interactive experiences, reusable components and motion-driven interfaces.",
+      "I use JavaScript and Vue to build interactive digital experiences, reusable components and motion-driven interfaces.",
+
     projects: ["Portfolio"],
+
     tone: "sage",
   },
 
   {
     number: "12",
+
     title: "CMS",
+
     description:
       "I have experience building interfaces around editable content and working with lightweight CMS solutions such as Bludit.",
+
     projects: ["NEXT"],
+
     tone: "soft",
   },
 ];
@@ -163,14 +211,15 @@ const secondRow = [
       aria-labelledby="skills-title"
     >
       <div class="skills-intro__copy">
-        <p class="skills-eyebrow reveal">What I work with</p>
+        <p class="skills-eyebrow reveal">UX/UI skills &amp; tools</p>
 
         <h1 id="skills-title" class="reveal">Skills</h1>
 
         <p class="skills-intro__text reveal">
-          My skills live somewhere between understanding people, shaping clear
-          visual systems and turning those ideas into interactive digital
-          experiences.
+          My skills combine UX research, UI design, interaction design,
+          accessibility and front-end development. I enjoy understanding how
+          people use digital products, shaping clear visual systems and turning
+          ideas into responsive, interactive experiences.
         </p>
       </div>
 
@@ -188,7 +237,7 @@ const secondRow = [
     <section
       ref="topSkills"
       class="section skills-grid-section"
-      aria-label="Design skills"
+      aria-label="UX and design skills"
     >
       <div class="skills-grid skills-grid--four">
         <SkillCard
@@ -221,9 +270,9 @@ const secondRow = [
 
           <p>
             I like understanding why something works before deciding how it
-            should look. My process moves between research, structure, visual
-            design and experimentation rather than treating them as separate
-            steps.
+            should look. My UX/UI process moves between research, information
+            structure, visual design, prototyping, testing and refinement rather
+            than treating them as completely separate steps.
           </p>
         </div>
 
@@ -283,9 +332,10 @@ const secondRow = [
       <p class="skills-eyebrow">Still growing</p>
 
       <p class="skills-ending__text">
-        I don’t see skills as boxes I’ve completed. I want to keep improving the
-        way I research, design, code and make digital experiences more
-        thoughtful and accessible.
+        I don’t see UX/UI, accessibility or front-end development as skills that
+        are ever completely finished. I want to keep improving the way I
+        research, design, prototype, test and build digital experiences that are
+        clear, thoughtful and accessible.
       </p>
     </section>
   </main>
@@ -552,6 +602,7 @@ const secondRow = [
   z-index: -1;
 
   width: 500px;
+
   height: 500px;
 
   opacity: 0.16;
@@ -571,16 +622,19 @@ const secondRow = [
 
 .workflow-water span:nth-child(1) {
   width: 160px;
+
   height: 160px;
 }
 
 .workflow-water span:nth-child(2) {
   width: 290px;
+
   height: 290px;
 }
 
 .workflow-water span:nth-child(3) {
   width: 430px;
+
   height: 430px;
 }
 

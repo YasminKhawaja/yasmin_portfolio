@@ -9,6 +9,7 @@ import { useScrollReveal } from "../composables/useScrollReveal";
 
 const intro = ref(null);
 const links = ref(null);
+const faq = ref(null);
 const closing = ref(null);
 
 /* =========================================
@@ -23,9 +24,55 @@ useScrollReveal(links, ".reveal", {
   stagger: 0.08,
 });
 
+useScrollReveal(faq, ".reveal", {
+  stagger: 0.08,
+});
+
 useScrollReveal(closing, ".reveal", {
   stagger: 0.08,
 });
+
+/* =========================================
+   FAQ / HOW I CAN HELP
+========================================= */
+
+const questions = [
+  {
+    question: "I need a new website. Can you help?",
+    answer:
+      "Absolutely. I can help shape the UX/UI, visual direction and front-end of a responsive website, from the first structure to a working digital experience.",
+  },
+
+  {
+    question: "I have a business idea and need branding. Where do I start?",
+    answer:
+      "We can build the visual direction together, from colour, typography and identity to the way your brand translates into a digital experience.",
+  },
+
+  {
+    question: "My website feels confusing. Can you help improve it?",
+    answer:
+      "Yes. I can look at the structure, navigation, interface and accessibility to identify where the experience can become clearer and easier to use.",
+  },
+
+  {
+    question: "Can you help make my website more accessible?",
+    answer:
+      "Yes. I can review things like contrast, hierarchy, navigation, responsive behaviour and other accessibility considerations based on WCAG principles.",
+  },
+
+  {
+    question: "I need a prototype before building the real thing.",
+    answer:
+      "I can turn an idea or user flow into wireframes and an interactive Figma prototype that can be tested and refined before development starts.",
+  },
+
+  {
+    question: "I want a low-poly character or 3D visual made in Blender.",
+    answer:
+      "Let’s bring it to life. I enjoy experimenting with low-poly modelling, playful 3D visuals and small creative worlds.",
+  },
+];
 </script>
 
 <template>
@@ -45,12 +92,16 @@ useScrollReveal(closing, ".reveal", {
         <h1 id="contact-title" class="reveal">Let’s talk.</h1>
 
         <p class="contact-hero__intro reveal">
-          Have a question, want to collaborate or just want to say hi? I’d love
-          to hear from you.
+          Looking for a Digital Experience Designer for a website, UX/UI
+          project, branding idea or something a little more playful? I’d love to
+          hear what you’re working on.
         </p>
 
-        <a class="contact-email reveal" href="mailto:hello@example.com">
-          hello@example.com
+        <a
+          class="contact-email reveal"
+          href="mailto:heyitsyasmink.design@outlook.com"
+        >
+          heyitsyasmink.design@outlook.com
 
           <span aria-hidden="true"> ↗ </span>
         </a>
@@ -85,7 +136,10 @@ useScrollReveal(closing, ".reveal", {
       aria-label="Contact links"
     >
       <div class="contact-links">
-        <a class="contact-link reveal" href="mailto:hello@example.com">
+        <a
+          class="contact-link reveal"
+          href="mailto:heyitsyasmink.design@outlook.com"
+        >
           <span> Email </span>
 
           <strong> Send me a message </strong>
@@ -95,7 +149,7 @@ useScrollReveal(closing, ".reveal", {
 
         <a
           class="contact-link reveal"
-          href="#"
+          href="https://www.linkedin.com/in/yasmin-khawaja"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -108,16 +162,53 @@ useScrollReveal(closing, ".reveal", {
 
         <a
           class="contact-link reveal"
-          href="#"
+          href="https://www.instagram.com/yasmiinniimsay/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span> GitHub </span>
+          <span> Instagram </span>
 
-          <strong> See what I build </strong>
+          <strong> See more of my creative side </strong>
 
           <span aria-hidden="true"> ↗ </span>
         </a>
+      </div>
+    </section>
+
+    <!-- =====================================
+         HOW I CAN HELP
+    ====================================== -->
+
+    <section
+      ref="faq"
+      class="section contact-faq"
+      aria-labelledby="contact-faq-title"
+    >
+      <header class="contact-faq__header">
+        <p class="contact-eyebrow reveal">How I can help</p>
+
+        <h2 id="contact-faq-title" class="reveal">Have something in mind?</h2>
+
+        <p class="contact-faq__intro reveal">
+          Not sure what to call the thing you need yet? That’s okay. These are
+          some of the projects and questions you can reach out to me about.
+        </p>
+      </header>
+
+      <div class="contact-faq__list">
+        <article
+          v-for="item in questions"
+          :key="item.question"
+          class="contact-faq__item reveal"
+        >
+          <h3>
+            {{ item.question }}
+          </h3>
+
+          <p>
+            {{ item.answer }}
+          </p>
+        </article>
       </div>
     </section>
 
@@ -138,12 +229,12 @@ useScrollReveal(closing, ".reveal", {
         </h2>
 
         <p class="contact-closing__text reveal">
-          I’m interested in digital experiences where research, visual design
-          and interaction come together.
+          I’m interested in collaborations where UX/UI, visual design,
+          accessibility, interaction and front-end development come together.
         </p>
 
         <a
-          href="mailto:hello@example.com"
+          href="mailto:heyitsyasmink.design@outlook.com"
           class="contact-closing__button reveal"
         >
           Say hello
@@ -229,7 +320,7 @@ useScrollReveal(closing, ".reveal", {
 }
 
 .contact-hero__intro {
-  max-width: 550px;
+  max-width: 560px;
 
   font-size: clamp(18px, 1.6vw, 23px);
 
@@ -251,11 +342,13 @@ useScrollReveal(closing, ".reveal", {
 
   color: inherit;
 
-  font-size: clamp(18px, 2vw, 28px);
+  font-size: clamp(16px, 2vw, 28px);
 
   letter-spacing: -0.025em;
 
   text-decoration: none;
+
+  overflow-wrap: anywhere;
 
   transition: opacity 0.3s ease;
 }
@@ -278,9 +371,11 @@ useScrollReveal(closing, ".reveal", {
   position: absolute;
 
   left: 50%;
+
   top: 50%;
 
   width: 420px;
+
   height: 420px;
 
   border-radius: 50%;
@@ -307,6 +402,7 @@ useScrollReveal(closing, ".reveal", {
 
 .contact-visual__leaf {
   left: 50%;
+
   top: 49%;
 
   width: min(70%, 480px);
@@ -318,6 +414,7 @@ useScrollReveal(closing, ".reveal", {
 
 .contact-visual__lotus--one {
   right: 2%;
+
   top: 29%;
 
   width: clamp(130px, 15vw, 220px);
@@ -327,6 +424,7 @@ useScrollReveal(closing, ".reveal", {
 
 .contact-visual__lotus--two {
   left: 18%;
+
   bottom: 10%;
 
   width: clamp(150px, 18vw, 250px);
@@ -402,6 +500,82 @@ useScrollReveal(closing, ".reveal", {
 }
 
 /* =========================================
+   FAQ / HOW I CAN HELP
+========================================= */
+
+.contact-faq {
+  padding-top: 80px;
+
+  padding-bottom: 160px;
+}
+
+.contact-faq__header {
+  max-width: 900px;
+
+  margin-bottom: 80px;
+}
+
+.contact-faq__header h2 {
+  max-width: 850px;
+
+  font-size: clamp(48px, 7vw, 100px);
+
+  line-height: 0.92;
+
+  letter-spacing: -0.065em;
+
+  text-transform: uppercase;
+}
+
+.contact-faq__intro {
+  max-width: 620px;
+
+  margin-top: 28px;
+
+  font-size: 16px;
+
+  line-height: 1.65;
+
+  opacity: 0.78;
+}
+
+.contact-faq__list {
+  border-top: 1px solid rgba(17, 17, 17, 0.16);
+}
+
+.contact-faq__item {
+  display: grid;
+
+  grid-template-columns:
+    minmax(280px, 0.9fr)
+    minmax(0, 1.1fr);
+
+  gap: clamp(40px, 7vw, 100px);
+
+  padding: 42px 0;
+
+  border-bottom: 1px solid rgba(17, 17, 17, 0.16);
+}
+
+.contact-faq__item h3 {
+  max-width: 520px;
+
+  font-size: clamp(22px, 2.5vw, 34px);
+
+  line-height: 1.2;
+
+  letter-spacing: -0.035em;
+}
+
+.contact-faq__item p {
+  max-width: 600px;
+
+  font-size: 15px;
+
+  line-height: 1.65;
+}
+
+/* =========================================
    CLOSING
 ========================================= */
 
@@ -434,7 +608,7 @@ useScrollReveal(closing, ".reveal", {
 }
 
 .contact-closing__text {
-  max-width: 520px;
+  max-width: 560px;
 
   margin-top: 38px;
 
@@ -498,6 +672,12 @@ useScrollReveal(closing, ".reveal", {
       1fr
       auto;
   }
+
+  .contact-faq__item {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
 }
 
 /* =========================================
@@ -547,6 +727,20 @@ useScrollReveal(closing, ".reveal", {
 
   .contact-link > span:first-child {
     grid-column: 1 / -1;
+  }
+
+  .contact-faq {
+    padding-top: 60px;
+
+    padding-bottom: 110px;
+  }
+
+  .contact-faq__header {
+    margin-bottom: 55px;
+  }
+
+  .contact-faq__item {
+    padding: 32px 0;
   }
 
   .contact-closing__inner {
