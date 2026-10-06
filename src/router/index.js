@@ -12,6 +12,7 @@ import LumiereProjectPage from "../pages/LumiereProjectPage.vue";
 import AccessibilityProjectPage from "../pages/AccessibilityProjectPage.vue";
 import SkillsPage from "../pages/SkillsPage.vue";
 import ContactPage from "../pages/ContactPage.vue";
+import PrivacyPage from "../pages/PrivacyPage.vue";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -137,6 +138,19 @@ const router = createRouter({
           "Get in touch with Yasmin about digital design projects, collaborations, internships, freelance opportunities or portfolio questions.",
       },
     },
+
+    {
+      path: "/privacy",
+      name: "privacy",
+      component: PrivacyPage,
+
+      meta: {
+        title: "Privacy & Cookies | Yasmin",
+
+        description:
+          "Learn how analytics, cookies, Contentsquare and Google Analytics are used on Yasmin's portfolio and manage your analytics preferences.",
+      },
+    },
   ],
 
   scrollBehavior(to) {
@@ -258,7 +272,6 @@ router.afterEach(async (to) => {
 
   setMetaTag('meta[name="twitter:description"]', {
     name: "twitter:description",
-
     content: description,
   });
 

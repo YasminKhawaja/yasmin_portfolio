@@ -9,6 +9,10 @@ useScrollReveal(root, ".reveal", {
 });
 
 const year = new Date().getFullYear();
+
+function openCookieSettings() {
+  window.dispatchEvent(new CustomEvent("open-cookie-settings"));
+}
 </script>
 
 <template>
@@ -57,7 +61,8 @@ const year = new Date().getFullYear();
             rel="noopener noreferrer"
           >
             LinkedIn
-            <span aria-hidden="true">↗</span>
+
+            <span aria-hidden="true"> ↗ </span>
           </a>
 
           <a
@@ -67,7 +72,8 @@ const year = new Date().getFullYear();
             rel="noopener noreferrer"
           >
             Instagram
-            <span aria-hidden="true">↗</span>
+
+            <span aria-hidden="true"> ↗ </span>
           </a>
         </div>
       </div>
@@ -87,6 +93,18 @@ const year = new Date().getFullYear();
 
         <RouterLink to="/contact"> Contact </RouterLink>
       </nav>
+
+      <!-- =====================================
+           PRIVACY
+      ====================================== -->
+
+      <div class="footer__privacy reveal">
+        <RouterLink to="/privacy"> Privacy &amp; Cookies </RouterLink>
+
+        <button type="button" @click="openCookieSettings">
+          Cookie settings
+        </button>
+      </div>
 
       <!-- =====================================
            BOTTOM
@@ -124,7 +142,6 @@ const year = new Date().getFullYear();
   position: absolute;
 
   left: 0;
-
   right: 0;
 
   bottom: -20px;
@@ -401,6 +418,54 @@ const year = new Date().getFullYear();
 }
 
 /* =========================================
+   PRIVACY
+========================================= */
+
+.footer__privacy {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px 22px;
+
+  margin-top: -38px;
+}
+
+.footer__privacy a,
+.footer__privacy button {
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: inherit;
+
+  font-family: var(--font-body);
+
+  font-size: 11px;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  opacity: 0.5;
+
+  transition: opacity 0.3s ease;
+}
+
+.footer__privacy a:hover,
+.footer__privacy button:hover {
+  opacity: 1;
+}
+
+.footer__privacy a {
+  text-decoration: underline;
+
+  text-underline-offset: 4px;
+}
+
+/* =========================================
    BOTTOM
 ========================================= */
 
@@ -499,6 +564,10 @@ const year = new Date().getFullYear();
     gap: 12px 20px;
   }
 
+  .footer__privacy {
+    margin-top: -22px;
+  }
+
   .footer__copy {
     text-align: left;
 
@@ -514,7 +583,9 @@ const year = new Date().getFullYear();
   .footer__email,
   .footer__socials .pill,
   .footer__nav a,
-  .footer__nav a::after {
+  .footer__nav a::after,
+  .footer__privacy a,
+  .footer__privacy button {
     transition: none;
   }
 }
