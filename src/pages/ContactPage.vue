@@ -2,6 +2,7 @@
 import { ref } from "vue";
 
 import { useScrollReveal } from "../composables/useScrollReveal";
+import IconArrowUpRight from "../components/ui/IconArrowUpRight.vue";
 
 /* =========================================
    REFS
@@ -103,7 +104,7 @@ const questions = [
         >
           heyitsyasmink.design@outlook.com
 
-          <span aria-hidden="true"> ↗ </span>
+          <span aria-hidden="true"> <IconArrowUpRight /> </span>
         </a>
       </div>
 
@@ -144,7 +145,7 @@ const questions = [
 
           <strong> Send me a message </strong>
 
-          <span aria-hidden="true"> ↗ </span>
+          <span aria-hidden="true"> <IconArrowUpRight /> </span>
         </a>
 
         <a
@@ -157,7 +158,7 @@ const questions = [
 
           <strong> Connect with me </strong>
 
-          <span aria-hidden="true"> ↗ </span>
+          <span aria-hidden="true"> <IconArrowUpRight /> </span>
         </a>
 
         <a
@@ -170,7 +171,7 @@ const questions = [
 
           <strong> See more of my creative side </strong>
 
-          <span aria-hidden="true"> ↗ </span>
+          <span aria-hidden="true"> <IconArrowUpRight /> </span>
         </a>
       </div>
     </section>
@@ -239,7 +240,7 @@ const questions = [
         >
           Say hello
 
-          <span aria-hidden="true"> ↗ </span>
+          <span aria-hidden="true"> <IconArrowUpRight /> </span>
         </a>
       </div>
     </section>

@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { useScrollReveal } from "../composables/useScrollReveal";
+import IconArrowUpRight from "./ui/IconArrowUpRight.vue";
 
 const root = ref(null);
 
@@ -50,7 +51,7 @@ function openCookieSettings() {
         <a href="mailto:heyitsyasmink.design@outlook.com" class="footer__email">
           <span> heyitsyasmink.design@outlook.com </span>
 
-          <span aria-hidden="true"> ↗ </span>
+          <span aria-hidden="true"> <IconArrowUpRight /> </span>
         </a>
 
         <div class="footer__socials" aria-label="Social links">
@@ -62,7 +63,7 @@ function openCookieSettings() {
           >
             LinkedIn
 
-            <span aria-hidden="true"> ↗ </span>
+            <span aria-hidden="true"> <IconArrowUpRight /> </span>
           </a>
 
           <a
@@ -73,7 +74,7 @@ function openCookieSettings() {
           >
             Instagram
 
-            <span aria-hidden="true"> ↗ </span>
+            <span aria-hidden="true"> <IconArrowUpRight /> </span>
           </a>
         </div>
       </div>

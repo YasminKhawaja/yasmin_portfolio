@@ -2,6 +2,7 @@
 import { RouterLink } from "vue-router";
 
 import TiltSurface from "./ui/TiltSurface.vue";
+import IconArrowUpRight from "./ui/IconArrowUpRight.vue";
 
 defineProps({
   title: {
@@ -116,7 +117,7 @@ defineProps({
       ====================================== -->
 
       <span v-if="path" class="project-card__arrow" aria-hidden="true">
-        ↗
+        <IconArrowUpRight />
       </span>
     </component>
   </TiltSurface>

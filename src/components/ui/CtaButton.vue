@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink } from "vue-router";
+import IconArrowUpRight from "./ui/IconArrowUpRight.vue";
 
 const props = defineProps({
   to: {
@@ -41,7 +42,9 @@ const props = defineProps({
       <slot />
     </span>
 
-    <span v-if="arrow" class="cta-button__arrow" aria-hidden="true"> ↗ </span>
+    <span v-if="arrow" class="cta-button__arrow" aria-hidden="true">
+      <IconArrowUpRight />
+    </span>
   </RouterLink>
 
   <a
@@ -56,7 +59,9 @@ const props = defineProps({
       <slot />
     </span>
 
-    <span v-if="arrow" class="cta-button__arrow" aria-hidden="true"> ↗ </span>
+    <span v-if="arrow" class="cta-button__arrow" aria-hidden="true">
+      <IconArrowUpRight />
+    </span>
   </a>
 </template>
 
