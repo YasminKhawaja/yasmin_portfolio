@@ -17,6 +17,14 @@ import PrivacyPage from "../pages/PrivacyPage.vue";
 gsap.registerPlugin(ScrollTrigger);
 
 /* =========================================
+   BROWSER SCROLL RESTORATION
+========================================= */
+
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+/* =========================================
    SITE SEO DEFAULTS
 ========================================= */
 
@@ -154,17 +162,24 @@ const router = createRouter({
   ],
 
   scrollBehavior(to) {
+    /*
+      Anchor links, bijvoorbeeld /about#something
+    */
     if (to.hash) {
       return {
         el: to.hash,
-        behavior: "smooth",
         top: 90,
+        behavior: "smooth",
       };
     }
 
+    /*
+      Elke normale nieuwe pagina opent bovenaan.
+    */
     return {
       top: 0,
       left: 0,
+      behavior: "auto",
     };
   },
 });
@@ -178,7 +193,6 @@ function setMetaTag(selector, attributes) {
 
   if (!tag) {
     tag = document.createElement("meta");
-
     document.head.appendChild(tag);
   }
 
@@ -282,10 +296,30 @@ router.afterEach(async (to) => {
   setCanonical(canonicalUrl);
 
   /* =======================================
-     REFRESH GSAP
+     WAIT FOR NEW PAGE
   ======================================= */
 
   await nextTick();
+
+  /*
+    Extra safeguard:
+    after the new Vue page has rendered,
+    force normal route navigation to the top.
+
+    Hash navigation is excluded.
+  */
+
+  if (!to.hash) {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "auto",
+    });
+  }
+
+  /* =======================================
+     REFRESH GSAP
+  ======================================= */
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
