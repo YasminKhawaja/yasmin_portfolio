@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --color-bg: #f9f9f9;
   --color-text: #111111;
@@ -10,9 +18,9 @@
 
   --color-accent: rgba(197, 196, 211, 0.35);
 
-  --font-heading: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  --font-heading: "Century Gothic", CenturyGothic, "Inter", Arial, sans-serif;
 
-  --font-body: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  --font-body: "Century Gothic", CenturyGothic, "Inter", Arial, sans-serif;
 
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
