@@ -21,3 +21,5 @@ pnpm-debug.log*
 # OS files
 .DS_Store
 Thumbs.db
+# Contentsquare wizard (generated)
+.cs-wizard/
