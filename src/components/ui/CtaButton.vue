@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from "vue-router";
-import IconArrowUpRight from "./ui/IconArrowUpRight.vue";
+import IconArrowUpRight from "./IconArrowUpRight.vue";
 
 const props = defineProps({
   to: {
