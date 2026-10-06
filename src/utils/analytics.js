@@ -4,9 +4,17 @@
 
 const CONTENTSQUARE_TAG_ID = "3930b5e9cb286";
 
-const GOOGLE_ANALYTICS_ID = "G-D8VV3T3WR2";
-
 let analyticsLoaded = false;
+
+/* =========================================
+   DATA LAYER
+========================================= */
+
+function getDataLayer() {
+  window.dataLayer = window.dataLayer || [];
+
+  return window.dataLayer;
+}
 
 /* =========================================
    CONTENTSQUARE
@@ -29,34 +37,14 @@ function loadContentsquare() {
 }
 
 /* =========================================
-   GOOGLE ANALYTICS
+   GOOGLE TAG MANAGER CONSENT EVENT
 ========================================= */
 
-function loadGoogleAnalytics() {
-  if (document.querySelector("[data-google-analytics-tag]")) {
-    return;
-  }
+function grantGoogleAnalyticsConsent() {
+  const dataLayer = getDataLayer();
 
-  const script = document.createElement("script");
-
-  script.async = true;
-
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`;
-
-  script.dataset.googleAnalyticsTag = "true";
-
-  document.head.appendChild(script);
-
-  window.dataLayer = window.dataLayer || [];
-
-  window.gtag = function () {
-    window.dataLayer.push(arguments);
-  };
-
-  window.gtag("js", new Date());
-
-  window.gtag("config", GOOGLE_ANALYTICS_ID, {
-    send_page_view: false,
+  dataLayer.push({
+    event: "analytics_consent_granted",
   });
 }
 
@@ -71,21 +59,37 @@ export function loadAnalytics() {
 
   analyticsLoaded = true;
 
+  /*
+    Contentsquare is loaded only after the visitor
+    accepts analytics.
+  */
+
   loadContentsquare();
 
-  loadGoogleAnalytics();
+  /*
+    Google Analytics itself is managed by
+    Google Tag Manager.
+
+    This event activates the Google tag in GTM.
+  */
+
+  grantGoogleAnalyticsConsent();
 }
 
 /* =========================================
-   GOOGLE PAGE VIEW
+   PAGE VIEW
 ========================================= */
 
 export function trackPageView(path) {
-  if (!window.gtag) {
+  if (!analyticsLoaded) {
     return;
   }
 
-  window.gtag("event", "page_view", {
+  const dataLayer = getDataLayer();
+
+  dataLayer.push({
+    event: "portfolio_page_view",
+
     page_title: document.title,
 
     page_location: `${window.location.origin}${path}`,
