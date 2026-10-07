@@ -4,71 +4,34 @@ import { ref } from "vue";
 import { useScrollReveal } from "../composables/useScrollReveal";
 
 import StickyImageStack from "../components/case/StickyImageStack.vue";
+import CaseImageGallery from "../components/case/CaseImageGallery.vue";
 import CaseProgress from "../components/case/CaseProgress.vue";
 import BackToTop from "../components/case/BackToTop.vue";
 import TiltSurface from "../components/ui/TiltSurface.vue";
+import IconArrowUpRight from "../components/ui/IconArrowUpRight.vue";
 
 /* =========================================
    SECTION REFS
 ========================================= */
 
 const hero = ref(null);
+const overview = ref(null);
 const challenge = ref(null);
 const research = ref(null);
+const userNeeds = ref(null);
 const structure = ref(null);
-const prototype = ref(null);
+const wireframes = ref(null);
+const highFidelity = ref(null);
+const interactions = ref(null);
+const variables = ref(null);
 const testing = ref(null);
-const results = ref(null);
 const refine = ref(null);
+const finalResult = ref(null);
 const role = ref(null);
 const reflection = ref(null);
 
 /* =========================================
-   SCROLL REVEAL
-========================================= */
-
-useScrollReveal(hero, ".reveal", {
-  stagger: 0.07,
-});
-
-useScrollReveal(challenge, ".reveal", {
-  stagger: 0.07,
-});
-
-useScrollReveal(research, ".reveal", {
-  stagger: 0.07,
-});
-
-useScrollReveal(structure, ".reveal", {
-  stagger: 0.07,
-});
-
-useScrollReveal(prototype, ".reveal", {
-  stagger: 0.07,
-});
-
-useScrollReveal(testing, ".reveal", {
-  stagger: 0.07,
-});
-
-useScrollReveal(results, ".reveal", {
-  stagger: 0.07,
-});
-
-useScrollReveal(refine, ".reveal", {
-  stagger: 0.07,
-});
-
-useScrollReveal(role, ".reveal", {
-  stagger: 0.07,
-});
-
-useScrollReveal(reflection, ".reveal", {
-  stagger: 0.07,
-});
-
-/* =========================================
-   PROGRESS STEPS
+   PROGRESS
 ========================================= */
 
 const progressSteps = [
@@ -85,12 +48,24 @@ const progressSteps = [
     label: "Research",
   },
   {
+    id: "lumiere-user-needs",
+    label: "User needs",
+  },
+  {
     id: "lumiere-structure",
     label: "Structure",
   },
   {
-    id: "lumiere-prototype",
-    label: "Prototype",
+    id: "lumiere-wireframes",
+    label: "Wireframes",
+  },
+  {
+    id: "lumiere-high-fidelity",
+    label: "UI design",
+  },
+  {
+    id: "lumiere-interactions",
+    label: "Interactions",
   },
   {
     id: "lumiere-testing",
@@ -101,52 +76,144 @@ const progressSteps = [
     label: "Refine",
   },
   {
+    id: "lumiere-final",
+    label: "Final result",
+  },
+  {
+    id: "lumiere-role",
+    label: "My role",
+  },
+  {
     id: "lumiere-reflection",
     label: "Reflection",
   },
 ];
 
 /* =========================================
-   IMAGE STACKS
+   SCROLL REVEALS
+========================================= */
+
+[
+  hero,
+  overview,
+  challenge,
+  research,
+  userNeeds,
+  structure,
+  wireframes,
+  highFidelity,
+  interactions,
+  variables,
+  testing,
+  refine,
+  finalResult,
+  role,
+  reflection,
+].forEach((section) => {
+  useScrollReveal(section, ".reveal", {
+    stagger: 0.07,
+  });
+});
+
+/* =========================================
+   TIMELINE
+========================================= */
+
+const timeline = [
+  {
+    number: "01",
+    title: "Research & benchmark",
+    text: "Analyse the existing Lumière experience and compare familiar cinema interaction patterns.",
+  },
+  {
+    number: "02",
+    title: "User stories & flows",
+    text: "Translate user needs into concrete goals, flows and acceptance criteria.",
+  },
+  {
+    number: "03",
+    title: "Information architecture",
+    text: "Prioritise functionality and organise the app structure before designing screens.",
+  },
+  {
+    number: "04",
+    title: "Group wireframes",
+    text: "Create a shared low-fidelity foundation for the main cinema app flows.",
+  },
+  {
+    number: "05",
+    title: "Individual UI design",
+    text: "Develop the shared structure into an individual high-fidelity visual direction.",
+  },
+  {
+    number: "06",
+    title: "Variables & interactions",
+    text: "Add dynamic states, ticket logic, profile changes and light/dark mode.",
+  },
+  {
+    number: "07",
+    title: "Usability testing",
+    text: "Test the high-fidelity prototype with ten participants.",
+  },
+  {
+    number: "08",
+    title: "Refine & deliver",
+    text: "Improve the interface based on testing and final UX reviews.",
+  },
+];
+
+/* =========================================
+   UX LAWS
+========================================= */
+
+const uxLaws = [
+  {
+    title: "Jakob's Law",
+    text: "Users bring expectations from other digital products into a new interface.",
+  },
+  {
+    title: "Fitts's Law",
+    text: "Important interactive targets should be easy to reach and large enough to use comfortably.",
+  },
+  {
+    title: "Hick's Law",
+    text: "Reducing unnecessary choices can make important decisions feel easier.",
+  },
+  {
+    title: "Miller's Law",
+    text: "Information becomes easier to process when it is grouped into manageable chunks.",
+  },
+  {
+    title: "Peak-End Rule",
+    text: "Memorable moments and the end of a flow strongly influence the overall experience.",
+  },
+];
+
+/* =========================================
+   BENCHMARK STACK
 ========================================= */
 
 const benchmarkImages = ["/images/lumiere/benchmarking_webdesign.webp"];
 
-const structureImages = [
-  "/images/lumiere/moodboard-04.jpg",
-  "/images/lumiere/moodboard-05.jpg",
-  "/images/lumiere/moodboard-06.jpg",
-];
-
-const prototypeImages = [
-  "/images/lumiere/moodboard-07.jpg",
-  "/images/lumiere/moodboard-08.jpg",
-  "/images/lumiere/moodboard-09.jpg",
-];
-
-const testingImages = [
-  "/images/lumiere/moodboard-10.jpg",
-  "/images/lumiere/moodboard-11.jpg",
-  "/images/lumiere/moodboard-12.jpg",
-];
-
-const finalImages = [
-  "/images/lumiere/moodboard-13.jpg",
-  "/images/lumiere/moodboard-14.jpg",
-  "/images/lumiere/moodboard-15.jpg",
-];
-
 /* =========================================
-   UX DATA
+   USER STORIES GALLERY
+
+   Add your own WebP exports later.
 ========================================= */
 
-const uxLaws = [
-  "Jakob's Law",
-  "Fitt's Law",
-  "Hick's Law",
-  "Miller's Law",
-  "Peak-End Rule",
-];
+const userStoryGallery = [];
+
+/* =========================================
+   FLOWCHART GALLERY
+
+   Add your own WebP exports later.
+========================================= */
+
+const flowchartGallery = [];
+
+/* =========================================
+   MOSCOW
+========================================= */
 
 const mustHave = [
   "Ordering tickets",
@@ -170,6 +237,119 @@ const outOfScope = [
   "Favourite cinema",
 ];
 
+/* =========================================
+   STRUCTURE STACK
+========================================= */
+
+const structureImages = [
+  "/images/lumiere/moodboard-04.jpg",
+  "/images/lumiere/moodboard-05.jpg",
+  "/images/lumiere/moodboard-06.jpg",
+];
+
+/* =========================================
+   GROUP WIREFRAMES
+
+   Add sharp exports later.
+========================================= */
+
+const groupWireframeGallery = [];
+
+/* =========================================
+   WIREFRAME / PROTOTYPE STACK
+========================================= */
+
+const prototypeImages = [
+  "/images/lumiere/moodboard-07.jpg",
+  "/images/lumiere/moodboard-08.jpg",
+  "/images/lumiere/moodboard-09.jpg",
+];
+
+/* =========================================
+   HIGH FIDELITY
+
+   Add your individual screen exports here.
+========================================= */
+
+const highFidelityGallery = [];
+
+/* =========================================
+   FUNCTIONALITIES
+========================================= */
+
+const functionalityCards = [
+  {
+    number: "01",
+    title: "Search",
+    text: "Find films quickly and move directly towards the most relevant result.",
+  },
+  {
+    number: "02",
+    title: "Favorites",
+    text: "Save films and return to them later without having to search again.",
+  },
+  {
+    number: "03",
+    title: "Purchased tickets",
+    text: "Keep current and previous cinema tickets accessible from the account.",
+  },
+  {
+    number: "04",
+    title: "Notifications",
+    text: "Communicate relevant updates without interrupting the main cinema experience.",
+  },
+  {
+    number: "05",
+    title: "Ticket flow",
+    text: "Guide users from film selection to tickets through a clear step-by-step process.",
+  },
+  {
+    number: "06",
+    title: "Feedback states",
+    text: "Use contextual messages for connection problems, confirmation and leaving a flow.",
+  },
+];
+
+/* =========================================
+   VIDEOS
+
+   Later add:
+   {
+     src: "/videos/lumiere/favorites.mp4",
+     title: "Favorites",
+     caption: "...",
+   }
+========================================= */
+
+const interactionVideos = [];
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+const variableCards = [
+  {
+    title: "Profile picture",
+    text: "A variable allows the selected profile image to update immediately across the account experience.",
+  },
+  {
+    title: "Ticket quantity",
+    text: "Plus and minus controls change the number of tickets and update the total price.",
+  },
+  {
+    title: "Light & dark mode",
+    text: "Variables control visual themes so users can switch between light and dark interface states.",
+  },
+  {
+    title: "Interface states",
+    text: "Dynamic values help keep components and interactions consistent throughout the prototype.",
+  },
+];
+
+/* =========================================
+   USER TESTING
+========================================= */
+
 const testTasks = [
   "Order three student tickets",
   "Find current and previous tickets",
@@ -180,6 +360,75 @@ const testTasks = [
   "Explore analytics",
   "Give feedback on light mode",
 ];
+
+const testResults = [
+  {
+    value: "9 / 10",
+    text: "successfully completed the student ticket flow",
+  },
+  {
+    value: "100%",
+    text: "found current and previous tickets",
+  },
+  {
+    value: "10 / 10",
+    text: "found and used the dark/light mode toggle",
+  },
+];
+
+const testingFindings = [
+  {
+    title: "Account vs tickets",
+    finding: "One participant confused Mijn tickets with Mijn account.",
+    change:
+      "The visual treatment of both sections needed a clearer distinction.",
+  },
+  {
+    title: "Light mode",
+    finding:
+      "The light interface remained usable, but some users felt the yellow accents were slightly too bright.",
+    change:
+      "The accent treatment was refined to improve readability and visual comfort.",
+  },
+];
+
+/* =========================================
+   TESTING STACK
+========================================= */
+
+const testingImages = [
+  "/images/lumiere/moodboard-10.jpg",
+  "/images/lumiere/moodboard-11.jpg",
+  "/images/lumiere/moodboard-12.jpg",
+];
+
+/* =========================================
+   FINAL STACK
+========================================= */
+
+const finalImages = [
+  "/images/lumiere/moodboard-13.jpg",
+  "/images/lumiere/moodboard-14.jpg",
+  "/images/lumiere/moodboard-15.jpg",
+];
+
+/* =========================================
+   FINAL SCREEN GALLERY
+
+   Add your sharp app screen exports here.
+========================================= */
+
+const finalScreenGallery = [];
+
+/* =========================================
+   FIGMA PROTOTYPES
+========================================= */
+
+const newUserPrototype =
+  "https://embed.figma.com/proto/HOIpFGuIOSgTzNX3GzkAro/Wireframes-Lumi%C3%A9re-app---Yasmin-Khawaja?node-id=3542-9879&t=69yx41biI6rfSddq-1&scaling=scale-down&content-scaling=fixed&page-id=3131%3A118754&embed-host=share";
+
+const returningUserPrototype =
+  "https://embed.figma.com/proto/HOIpFGuIOSgTzNX3GzkAro/Wireframes-Lumi%C3%A9re-app---Yasmin-Khawaja?node-id=3016-678&t=k3oiCI7V4sqz4w3x-1&scaling=scale-down&content-scaling=fixed&page-id=3001%3A1371&starting-point-node-id=3001%3A1373&embed-host=share";
 </script>
 
 <template>
@@ -199,57 +448,67 @@ const testTasks = [
       aria-labelledby="lumiere-title"
     >
       <div class="case-hero__tags reveal">
-        <span>UX/UI</span>
+        <span>UX/UI design</span>
         <span>Interaction design</span>
+        <span>UX laws</span>
         <span>Usability testing</span>
-        <span>Prototype</span>
+        <span>Figma variables</span>
       </div>
 
       <div class="case-hero__layout">
-        <div class="case-hero__copy">
-          <p class="case-label reveal">UX/UI case study</p>
+        <div>
+          <p class="case-label reveal">Mobile app UX/UI case study</p>
 
           <h1 id="lumiere-title" class="reveal">Cinema Lumière</h1>
 
           <h2 class="case-hero__subtitle reveal">
-            Designing a smoother cinema experience
+            Designing a smoother cinema experience.
           </h2>
 
           <p class="case-hero__intro reveal">
-            For this school project, we designed a UX/UI mobile app concept for
-            Cinema Lumière Mechelen, focused on making the cinema experience
-            clearer, smoother and easier to navigate.
+            For this school project, I designed a mobile app concept for Cinema
+            Lumière Mechelen with a focus on UX/UI, interaction design and
+            usability.
           </p>
 
           <p class="case-hero__intro reveal">
-            The project explored interaction design, information architecture,
-            prototyping and usability testing. We analysed existing user
-            journeys, applied UX laws and heuristics, structured user flows and
-            validated design decisions with real participants.
+            The project combined UX laws, benchmarking, user stories,
+            information architecture, wireframes, Figma variables, high-fidelity
+            prototyping and usability testing.
           </p>
         </div>
 
-        <div class="case-meta">
+        <dl class="case-meta">
           <div class="case-meta__item reveal">
-            <span>Type</span>
-            <p>School project</p>
+            <dt>Type</dt>
+            <dd>School project</dd>
           </div>
 
           <div class="case-meta__item reveal">
-            <span>Focus</span>
-            <p>UX/UI, interaction design, usability</p>
+            <dt>Format</dt>
+            <dd>Group research · individual UI design</dd>
           </div>
 
           <div class="case-meta__item reveal">
-            <span>Tools</span>
-            <p>Figma, FigJam, Useberry, UX laws, Nielsen heuristics</p>
+            <dt>Focus</dt>
+            <dd>UX/UI, interaction design, usability</dd>
           </div>
 
           <div class="case-meta__item reveal">
-            <span>Outcome</span>
-            <p>High-fidelity mobile app prototype</p>
+            <dt>Tools</dt>
+            <dd>Figma, FigJam, Useberry</dd>
           </div>
-        </div>
+
+          <div class="case-meta__item reveal">
+            <dt>Testing</dt>
+            <dd>10 participants</dd>
+          </div>
+
+          <div class="case-meta__item reveal">
+            <dt>Outcome</dt>
+            <dd>Interactive high-fidelity mobile app</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
@@ -260,8 +519,76 @@ const testTasks = [
     <section class="case-wide-visual">
       <img
         src="/images/lumiere/hero_webdesign.webp"
-        alt="Cinema Lumière UX/UI mobile app case study"
+        alt="Cinema Lumière mobile app UX/UI case study"
       />
+    </section>
+
+    <!-- =====================================
+         PROJECT OVERVIEW
+    ====================================== -->
+
+    <section ref="overview" class="section text-section">
+      <p class="section-kicker reveal">Project overview</p>
+
+      <div class="text-section__grid">
+        <h2 class="reveal">
+          From an existing cinema website to a complete mobile experience.
+        </h2>
+
+        <div>
+          <p class="large-copy reveal">
+            The project started with analysis rather than interface design.
+          </p>
+
+          <p class="reveal">
+            We first evaluated the existing Cinema Lumière experience and
+            explored where users could experience friction during common
+            cinema-related tasks.
+          </p>
+
+          <p class="reveal">
+            The group phase focused on UX research, structure and wireframes.
+            Afterwards, each student developed an individual high-fidelity
+            mobile app direction.
+          </p>
+
+          <p class="reveal">
+            My final concept included ticket flows, search, favorites,
+            notifications, account management, feedback states, Figma variables
+            and an adjustable light and dark mode.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================
+         TIMELINE
+    ====================================== -->
+
+    <section class="section timeline-section">
+      <p class="section-kicker">Design process</p>
+
+      <h2>Research first. Interaction second. Polish last.</h2>
+
+      <div class="timeline-grid">
+        <article
+          v-for="step in timeline"
+          :key="step.number"
+          class="timeline-card"
+        >
+          <span>
+            {{ step.number }}
+          </span>
+
+          <h3>
+            {{ step.title }}
+          </h3>
+
+          <p>
+            {{ step.text }}
+          </p>
+        </article>
+      </div>
     </section>
 
     <!-- =====================================
@@ -271,73 +598,83 @@ const testTasks = [
     <section
       id="lumiere-challenge"
       ref="challenge"
-      class="section case-text-section"
+      class="section text-section"
     >
-      <div class="section-number reveal">01</div>
+      <p class="section-kicker reveal">01 · Challenge</p>
 
-      <div class="case-text-grid">
-        <h2 class="reveal">Challenge</h2>
+      <div class="text-section__grid">
+        <h2 class="reveal">Make common cinema tasks feel easier on mobile.</h2>
 
         <div>
-          <p class="case-large-copy reveal">
-            Before designing the mobile app, we first had to understand where
-            users could experience friction on the existing Cinema Lumière
-            mobile website.
+          <p class="large-copy reveal">
+            Before designing the app, we needed to understand where users could
+            experience friction in the existing Cinema Lumière experience.
           </p>
 
           <p class="reveal">
-            We explored important cinema-related tasks such as finding a film,
-            checking film information, buying tickets, applying discounts,
-            creating an account, logging in and reserving seats.
+            We explored tasks such as discovering films, checking film
+            information, buying tickets, applying discounts, logging in,
+            managing an account and reserving seats.
           </p>
 
           <p class="reveal">
-            The challenge was to translate those findings into a UX/UI concept
-            that felt more intuitive, better structured and easier to use.
+            The challenge was not simply to redesign screens. It was to create a
+            mobile UX/UI structure that felt intuitive, predictable and easy to
+            navigate.
           </p>
         </div>
       </div>
     </section>
 
     <!-- =====================================
-         RESEARCH
+         RESEARCH & BENCHMARK
     ====================================== -->
 
-    <section
-      id="lumiere-research"
-      ref="research"
-      class="section case-text-section"
-    >
-      <div class="section-number reveal">02</div>
+    <section id="lumiere-research" ref="research" class="section text-section">
+      <p class="section-kicker reveal">02 · Research &amp; benchmark</p>
 
-      <div class="case-text-grid">
-        <h2 class="reveal">Research &amp; benchmark</h2>
+      <div class="text-section__grid">
+        <h2 class="reveal">Learning from familiar cinema experiences.</h2>
 
         <div>
-          <p class="case-large-copy reveal">
-            We compared Cinema Lumière with other cinema platforms to understand
-            familiar interaction patterns, usability strengths and points of
-            friction.
+          <p class="large-copy reveal">
+            We compared Cinema Lumière with other cinema platforms to identify
+            familiar interaction patterns, usability strengths and friction.
           </p>
 
           <p class="reveal">
-            We benchmarked Cinema Lumière against platforms such as UGC,
-            Kinepolis, Pathé and AMC.
+            The benchmark looked at film discovery, ticket purchase, seat
+            selection, account features, navigation, notifications and
+            accessibility-related options.
           </p>
 
           <p class="reveal">
-            We compared film discovery, ticket purchase, seat selection, account
-            features, notifications and accessibility-related options.
+            UX laws helped turn observations into design principles instead of
+            relying only on visual preference.
           </p>
         </div>
       </div>
 
       <div class="law-grid">
-        <div v-for="law in uxLaws" :key="law" class="law-card-wrap reveal">
-          <TiltSurface class="law-card" :strength="3.5" :scale="1.01">
-            {{ law }}
+        <article
+          v-for="(law, index) in uxLaws"
+          :key="law.title"
+          class="law-card-wrap reveal"
+        >
+          <TiltSurface class="law-card" :strength="3" :scale="1.01">
+            <span>
+              {{ String(index + 1).padStart(2, "0") }}
+            </span>
+
+            <h3>
+              {{ law.title }}
+            </h3>
+
+            <p>
+              {{ law.text }}
+            </p>
           </TiltSurface>
-        </div>
+        </article>
       </div>
     </section>
 
@@ -346,8 +683,10 @@ const testTasks = [
     ====================================== -->
 
     <section class="stack-section">
-      <div class="section stack-intro">
-        <p class="stack-label">Benchmarking &amp; UX analysis</p>
+      <div class="section stack-heading">
+        <p>Benchmarking &amp; UX analysis</p>
+
+        <h2>Finding patterns before creating new ones.</h2>
       </div>
 
       <StickyImageStack
@@ -357,95 +696,176 @@ const testTasks = [
     </section>
 
     <!-- =====================================
+         USER STORIES
+    ====================================== -->
+
+    <section
+      id="lumiere-user-needs"
+      ref="userNeeds"
+      class="section text-section"
+    >
+      <p class="section-kicker reveal">03 · User stories</p>
+
+      <div class="text-section__grid">
+        <h2 class="reveal">Turning features into actual user goals.</h2>
+
+        <div>
+          <p class="large-copy reveal">
+            User stories helped us move from “what should the app contain?” to
+            “what should someone be able to accomplish?”
+          </p>
+
+          <p class="reveal">
+            They defined important actions such as discovering a film,
+            purchasing tickets, reviewing previous bookings, managing favorites
+            and controlling account preferences.
+          </p>
+
+          <p class="reveal">
+            Acceptance criteria made those goals more concrete and gave us a
+            clearer basis for later prototyping and testing.
+          </p>
+        </div>
+      </div>
+
+      <div v-if="userStoryGallery.length" class="gallery-wrap reveal">
+        <CaseImageGallery
+          :images="userStoryGallery"
+          label="Cinema Lumière user stories"
+        />
+      </div>
+
+      <div v-else class="asset-placeholder reveal">
+        <span> Image to add later </span>
+
+        <p>Export your user stories from FigJam or Figma as a sharp WebP.</p>
+      </div>
+    </section>
+
+    <!-- =====================================
+         FLOWCHART
+    ====================================== -->
+
+    <section class="section text-section">
+      <p class="section-kicker">User flows</p>
+
+      <div class="text-section__grid">
+        <h2>Mapping how users move through the experience.</h2>
+
+        <div>
+          <p class="large-copy">
+            Before designing individual screens, we mapped the key routes
+            through the app.
+          </p>
+
+          <p>
+            The flowchart connected actions such as discovering films, logging
+            in, buying tickets, accessing favorites and managing settings.
+          </p>
+
+          <p>
+            This gave the team one shared structure and helped identify where
+            users might face unnecessary decisions or dead ends.
+          </p>
+        </div>
+      </div>
+
+      <div v-if="flowchartGallery.length" class="gallery-wrap">
+        <CaseImageGallery
+          :images="flowchartGallery"
+          label="Cinema Lumière flowchart"
+        />
+      </div>
+
+      <div v-else class="asset-placeholder">
+        <span> Image to add later </span>
+
+        <p>Flowchart / main user flows</p>
+      </div>
+    </section>
+
+    <!-- =====================================
          STRUCTURE
     ====================================== -->
 
     <section
       id="lumiere-structure"
       ref="structure"
-      class="section case-text-section"
+      class="section text-section"
     >
-      <div class="section-number reveal">03</div>
+      <p class="section-kicker reveal">04 · Information architecture</p>
 
-      <div class="case-text-grid">
-        <h2 class="reveal">Structure</h2>
+      <div class="text-section__grid">
+        <h2 class="reveal">
+          Deciding what belongs in the app before deciding how it looks.
+        </h2>
 
         <div>
-          <p class="case-large-copy reveal">
-            Before designing screens, we defined what the mobile app actually
-            needed to help users accomplish.
+          <p class="large-copy reveal">
+            After the benchmark, we prioritised the functionality using the
+            MoSCoW method.
           </p>
 
           <p class="reveal">
-            After benchmarking, we created a functionality list using the MoSCoW
-            method to prioritise the most important features.
+            This helped distinguish essential cinema tasks from useful additions
+            and ideas that were outside the scope of the project.
           </p>
 
           <p class="reveal">
-            We then used card sorting to organise more than forty features and
-            content items into a logical information architecture.
+            We then used card sorting and information architecture to organise
+            the content into a structure that users could understand.
           </p>
         </div>
       </div>
 
       <div class="moscow-grid">
-        <div class="moscow-card-wrap reveal">
-          <TiltSurface class="moscow-card" :strength="3" :scale="1.01">
-            <span> Must have </span>
+        <article class="moscow-card reveal">
+          <span> Must have </span>
 
-            <ul>
-              <li v-for="item in mustHave" :key="item">
-                {{ item }}
-              </li>
-            </ul>
-          </TiltSurface>
-        </div>
+          <ul>
+            <li v-for="item in mustHave" :key="item">
+              {{ item }}
+            </li>
+          </ul>
+        </article>
 
-        <div class="moscow-card-wrap reveal">
-          <TiltSurface class="moscow-card" :strength="3" :scale="1.01">
-            <span> Should have </span>
+        <article class="moscow-card reveal">
+          <span> Should have </span>
 
-            <ul>
-              <li v-for="item in shouldHave" :key="item">
-                {{ item }}
-              </li>
-            </ul>
-          </TiltSurface>
-        </div>
+          <ul>
+            <li v-for="item in shouldHave" :key="item">
+              {{ item }}
+            </li>
+          </ul>
+        </article>
 
-        <div class="moscow-card-wrap reveal">
-          <TiltSurface class="moscow-card" :strength="3" :scale="1.01">
-            <span> Could have </span>
+        <article class="moscow-card reveal">
+          <span> Could have </span>
 
-            <ul>
-              <li v-for="item in couldHave" :key="item">
-                {{ item }}
-              </li>
-            </ul>
-          </TiltSurface>
-        </div>
+          <ul>
+            <li v-for="item in couldHave" :key="item">
+              {{ item }}
+            </li>
+          </ul>
+        </article>
 
-        <div class="moscow-card-wrap reveal">
-          <TiltSurface class="moscow-card" :strength="3" :scale="1.01">
-            <span> Out of scope </span>
+        <article class="moscow-card reveal">
+          <span> Out of scope </span>
 
-            <ul>
-              <li v-for="item in outOfScope" :key="item">
-                {{ item }}
-              </li>
-            </ul>
-          </TiltSurface>
-        </div>
+          <ul>
+            <li v-for="item in outOfScope" :key="item">
+              {{ item }}
+            </li>
+          </ul>
+        </article>
       </div>
     </section>
 
-    <!-- =====================================
-         STRUCTURE STACK
-    ====================================== -->
-
     <section class="stack-section">
-      <div class="section stack-intro">
-        <p class="stack-label">Information architecture</p>
+      <div class="section stack-heading">
+        <p>Information architecture</p>
+
+        <h2>Giving the app a logical backbone.</h2>
       </div>
 
       <StickyImageStack
@@ -455,47 +875,51 @@ const testTasks = [
     </section>
 
     <!-- =====================================
-         PROTOTYPE
+         GROUP WIREFRAMES
     ====================================== -->
 
     <section
-      id="lumiere-prototype"
-      ref="prototype"
-      class="section case-text-section"
+      id="lumiere-wireframes"
+      ref="wireframes"
+      class="section text-section"
     >
-      <div class="section-number reveal">04</div>
+      <p class="section-kicker reveal">05 · Group wireframes</p>
 
-      <div class="case-text-grid">
-        <h2 class="reveal">Prototype</h2>
+      <div class="text-section__grid">
+        <h2 class="reveal">
+          One shared structure before four individual visual directions.
+        </h2>
 
         <div>
-          <p class="case-large-copy reveal">
-            Structure came before visual polish.
+          <p class="large-copy reveal">
+            The low-fidelity phase was created as a group.
           </p>
 
           <p class="reveal">
-            Based on the information architecture, we moved from flowcharts to
-            low-fidelity wireframes and interactive prototypes.
+            We designed the main flows and screens together so the interaction
+            structure was established before each student moved into an
+            individual high-fidelity direction.
           </p>
 
           <p class="reveal">
-            We also wrote user stories and acceptance criteria to turn abstract
-            app features into concrete user goals.
+            Working in low fidelity allowed us to focus on hierarchy, navigation
+            and task completion instead of getting distracted by styling too
+            early.
           </p>
-
-          <div class="design-question reveal">
-            <span> Instead of asking </span>
-
-            <p>What screen should we make?</p>
-
-            <span class="question-shift"> we asked </span>
-
-            <p>
-              What should the user be able to do, and what does success look
-              like?
-            </p>
-          </div>
         </div>
+      </div>
+
+      <div v-if="groupWireframeGallery.length" class="gallery-wrap reveal">
+        <CaseImageGallery
+          :images="groupWireframeGallery"
+          label="Cinema Lumière group wireframes"
+        />
+      </div>
+
+      <div v-else class="asset-placeholder reveal">
+        <span> Images to add later </span>
+
+        <p>Group wireframes — overview and important flows</p>
       </div>
     </section>
 
@@ -504,65 +928,256 @@ const testTasks = [
     ====================================== -->
 
     <section class="stack-section">
-      <div class="section stack-intro">
-        <p class="stack-label">Flows, wireframes &amp; prototype</p>
+      <div class="section stack-heading">
+        <p>Flows, wireframes &amp; early prototype</p>
+
+        <h2>Structure came before visual polish.</h2>
       </div>
 
       <StickyImageStack
         :images="prototypeImages"
-        alt-prefix="Cinema Lumière mobile app prototype"
+        alt-prefix="Cinema Lumière wireframes and early prototype"
       />
+    </section>
+
+    <!-- =====================================
+         HIGH FIDELITY
+    ====================================== -->
+
+    <section
+      id="lumiere-high-fidelity"
+      ref="highFidelity"
+      class="section text-section"
+    >
+      <p class="section-kicker reveal">06 · Individual high-fidelity design</p>
+
+      <div class="text-section__grid">
+        <h2 class="reveal">
+          From a shared UX structure to my own visual system.
+        </h2>
+
+        <div>
+          <p class="large-copy reveal">
+            After the group wireframes, I developed the interface individually
+            in Figma.
+          </p>
+
+          <p class="reveal">
+            I refined visual hierarchy, interaction patterns, spacing,
+            components and micro-interactions while keeping the underlying user
+            flows consistent.
+          </p>
+
+          <p class="reveal">
+            The app was designed for two different contexts: a new user who
+            needs more guidance and a returning user who benefits from faster
+            access to personal content.
+          </p>
+        </div>
+      </div>
+
+      <div v-if="highFidelityGallery.length" class="gallery-wrap reveal">
+        <CaseImageGallery
+          :images="highFidelityGallery"
+          label="Cinema Lumière high fidelity app screens"
+        />
+      </div>
+
+      <div v-else class="asset-placeholder reveal">
+        <span> Screens to add later </span>
+
+        <p>
+          Add your strongest high-fidelity app screens here as WebP exports.
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================
+         FUNCTIONALITIES
+    ====================================== -->
+
+    <section
+      id="lumiere-interactions"
+      ref="interactions"
+      class="section interaction-section"
+    >
+      <p class="section-kicker reveal">
+        07 · Functionalities &amp; interactions
+      </p>
+
+      <div class="interaction-heading">
+        <h2 class="reveal">Small interactions make the app feel usable.</h2>
+
+        <p class="reveal">
+          The concept included the full cinema journey, from discovering a film
+          to managing tickets and account preferences.
+        </p>
+      </div>
+
+      <div class="function-grid">
+        <article
+          v-for="item in functionalityCards"
+          :key="item.number"
+          class="function-card reveal"
+        >
+          <span>
+            {{ item.number }}
+          </span>
+
+          <h3>
+            {{ item.title }}
+          </h3>
+
+          <p>
+            {{ item.text }}
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- =====================================
+         INTERACTION VIDEOS
+    ====================================== -->
+
+    <section class="section video-section">
+      <p class="section-kicker">Interaction demos</p>
+
+      <div class="video-heading">
+        <h2>Some interactions are easier to understand in motion.</h2>
+
+        <p>
+          Short clips can show micro-interactions and dynamic states without
+          requiring someone to explore the complete prototype.
+        </p>
+      </div>
+
+      <div v-if="interactionVideos.length" class="video-grid">
+        <figure
+          v-for="video in interactionVideos"
+          :key="video.src"
+          class="video-card"
+        >
+          <div class="video-card__frame">
+            <video controls playsinline preload="metadata">
+              <source :src="video.src" type="video/mp4" />
+
+              Your browser does not support this video.
+            </video>
+          </div>
+
+          <figcaption>
+            <strong>
+              {{ video.title }}
+            </strong>
+
+            <p v-if="video.caption">
+              {{ video.caption }}
+            </p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div v-else class="asset-placeholder">
+        <span> Videos to add later </span>
+
+        <p>
+          Favorites · ticket flow · notifications · pop-ups · profile photo ·
+          light/dark mode
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================
+         VARIABLES
+    ====================================== -->
+
+    <section ref="variables" class="section variables-section">
+      <p class="section-kicker reveal">08 · Figma variables</p>
+
+      <div class="text-section__grid">
+        <h2 class="reveal">
+          Making the prototype behave more like a real product.
+        </h2>
+
+        <div>
+          <p class="large-copy reveal">
+            Variables were an important part of the interaction design.
+          </p>
+
+          <p class="reveal">
+            Instead of building every state as a completely separate screen,
+            variables allowed information and interface states to update
+            dynamically.
+          </p>
+
+          <p class="reveal">
+            I used them for interactions such as profile images, ticket
+            quantities, prices and switching between light and dark mode.
+          </p>
+        </div>
+      </div>
+
+      <div class="variable-grid">
+        <article
+          v-for="(item, index) in variableCards"
+          :key="item.title"
+          class="variable-card reveal"
+        >
+          <span>
+            {{ String(index + 1).padStart(2, "0") }}
+          </span>
+
+          <h3>
+            {{ item.title }}
+          </h3>
+
+          <p>
+            {{ item.text }}
+          </p>
+        </article>
+      </div>
     </section>
 
     <!-- =====================================
          TESTING
     ====================================== -->
 
-    <section
-      id="lumiere-testing"
-      ref="testing"
-      class="section case-text-section"
-    >
-      <div class="section-number reveal">05</div>
+    <section id="lumiere-testing" ref="testing" class="section testing-section">
+      <p class="section-kicker reveal">09 · Usability testing</p>
 
-      <div class="case-text-grid">
-        <h2 class="reveal">Usability testing</h2>
+      <div class="text-section__grid">
+        <h2 class="reveal">
+          Ten participants tested the high-fidelity prototype.
+        </h2>
 
         <div>
-          <p class="case-large-copy reveal">
-            I tested the high-fidelity UX/UI prototype with ten participants to
-            evaluate usability, navigation and the main interaction flows.
+          <p class="large-copy reveal">
+            The goal was to see whether the main flows were understandable
+            without extra explanation.
           </p>
 
           <p class="reveal">
-            The goal was to check whether users could complete the most
-            important actions independently.
-          </p>
-
-          <p class="reveal">
-            I also wanted to understand whether the navigation structure felt
-            logical, whether labels were clear and whether users could move
-            through the app without extra explanation.
+            Participants completed practical tasks covering tickets, navigation,
+            account features, watchlists, notifications and interface
+            preferences.
           </p>
         </div>
       </div>
 
       <div class="testing-grid">
-        <div
+        <article
           v-for="(task, index) in testTasks"
           :key="task"
-          class="testing-card-wrap reveal"
+          class="testing-card reveal"
         >
-          <TiltSurface class="testing-card" :strength="3" :scale="1.01">
-            <span class="testing-card__number">
-              {{ String(index + 1).padStart(2, "0") }}
-            </span>
+          <span>
+            {{ String(index + 1).padStart(2, "0") }}
+          </span>
 
-            <p>
-              {{ task }}
-            </p>
-          </TiltSurface>
-        </div>
+          <p>
+            {{ task }}
+          </p>
+        </article>
       </div>
     </section>
 
@@ -571,8 +1186,10 @@ const testTasks = [
     ====================================== -->
 
     <section class="stack-section">
-      <div class="section stack-intro">
-        <p class="stack-label">User testing</p>
+      <div class="section stack-heading">
+        <p>Usability testing</p>
+
+        <h2>Observe first. Improve second.</h2>
       </div>
 
       <StickyImageStack
@@ -585,54 +1202,60 @@ const testTasks = [
          TEST RESULTS
     ====================================== -->
 
-    <section ref="results" class="section findings-section">
-      <p class="case-label reveal">Test results</p>
+    <section class="section results-section">
+      <p class="section-kicker">Test results</p>
 
-      <h2 class="reveal">The main structure worked well.</h2>
+      <h2>The main structure already worked well.</h2>
 
       <div class="results-grid">
-        <div class="result-card-wrap reveal">
-          <TiltSurface class="result-card" :strength="3" :scale="1.01">
-            <strong> 9 / 10 </strong>
-
-            <p>successfully completed the student ticket flow</p>
-          </TiltSurface>
-        </div>
-
-        <div class="result-card-wrap reveal">
-          <TiltSurface class="result-card" :strength="3" :scale="1.01">
-            <strong> 100% </strong>
-
-            <p>found current and previous tickets</p>
-          </TiltSurface>
-        </div>
-
-        <div class="result-card-wrap reveal">
-          <TiltSurface class="result-card" :strength="3" :scale="1.01">
-            <strong> 10 / 10 </strong>
-
-            <p>found and used the dark/light mode toggle</p>
-          </TiltSurface>
-        </div>
-      </div>
-
-      <div class="finding-list">
-        <article class="finding reveal">
-          <span> Watchlist </span>
+        <article
+          v-for="result in testResults"
+          :key="result.value"
+          class="result-card"
+        >
+          <strong>
+            {{ result.value }}
+          </strong>
 
           <p>
-            One participant confused Mijn tickets with Mijn account. This showed
-            that both sections needed a clearer visual difference.
+            {{ result.text }}
           </p>
         </article>
+      </div>
 
-        <article class="finding reveal">
-          <span> Light mode </span>
+      <div class="findings-list">
+        <article
+          v-for="(finding, index) in testingFindings"
+          :key="finding.title"
+          class="finding"
+        >
+          <span class="finding__number">
+            {{ String(index + 1).padStart(2, "0") }}
+          </span>
 
-          <p>
-            The light interface remained usable, but some users felt the yellow
-            accents were slightly too bright.
-          </p>
+          <div>
+            <h3>
+              {{ finding.title }}
+            </h3>
+
+            <div class="finding__columns">
+              <div>
+                <span> Finding </span>
+
+                <p>
+                  {{ finding.finding }}
+                </p>
+              </div>
+
+              <div>
+                <span> Change </span>
+
+                <p>
+                  {{ finding.change }}
+                </p>
+              </div>
+            </div>
+          </div>
         </article>
       </div>
     </section>
@@ -641,35 +1264,32 @@ const testTasks = [
          REFINE
     ====================================== -->
 
-    <section id="lumiere-refine" ref="refine" class="section case-text-section">
-      <div class="section-number reveal">06</div>
+    <section id="lumiere-refine" ref="refine" class="section text-section">
+      <p class="section-kicker reveal">10 · Refine</p>
 
-      <div class="case-text-grid">
-        <h2 class="reveal">Refine</h2>
+      <div class="text-section__grid">
+        <h2 class="reveal">Not every test result needs a complete redesign.</h2>
 
         <div>
-          <p class="case-large-copy reveal">
-            The prototype did not need a complete redesign.
+          <p class="large-copy reveal">
+            Most important user flows already worked, so the final iteration
+            focused on smaller usability improvements.
           </p>
 
           <p class="reveal">
-            Most important user flows already worked, so I focused on smaller
-            usability refinements instead of making unnecessary large changes.
+            I adjusted the visual distinction between account and ticket
+            sections after one participant confused the two.
           </p>
 
           <p class="reveal">
-            I adjusted the icon and label treatment for Mijn account and Mijn
-            tickets to make the difference clearer.
+            I also refined the yellow accent treatment in light mode after
+            feedback about brightness and visual comfort.
           </p>
 
           <p class="reveal">
-            I also refined the yellow accent colour in light mode to improve
-            readability and contrast.
-          </p>
-
-          <p class="reveal">
-            In the high-fidelity phase, we reviewed the prototype using
-            Nielsen's heuristics and C.R.A.P. principles.
+            The high-fidelity interface was additionally reviewed through
+            Nielsen heuristics and C.R.A.P. principles to identify consistency,
+            hierarchy and usability improvements.
           </p>
         </div>
       </div>
@@ -680,42 +1300,208 @@ const testTasks = [
     ====================================== -->
 
     <section class="stack-section">
-      <div class="section stack-intro">
-        <p class="stack-label">Refined prototype</p>
+      <div class="section stack-heading">
+        <p>Refined prototype</p>
+
+        <h2>
+          Improving the experience without redesigning what already worked.
+        </h2>
       </div>
 
       <StickyImageStack
         :images="finalImages"
-        alt-prefix="Cinema Lumière refined UX/UI prototype"
+        alt-prefix="Cinema Lumière refined mobile app"
       />
+    </section>
+
+    <!-- =====================================
+         FINAL RESULT
+    ====================================== -->
+
+    <section id="lumiere-final" ref="finalResult" class="section final-section">
+      <p class="section-kicker reveal">11 · Final result</p>
+
+      <h2 class="reveal">
+        One app, two user contexts and a complete cinema journey.
+      </h2>
+
+      <p class="final-intro reveal">
+        The final mobile app combines film discovery, tickets, favorites,
+        notifications, profile management, dynamic variables and light/dark mode
+        in one consistent UX/UI system.
+      </p>
+
+      <div class="final-tags">
+        <span> Film discovery </span>
+
+        <span> Ticket flows </span>
+
+        <span> Favorites </span>
+
+        <span> Variables </span>
+
+        <span> Light &amp; dark mode </span>
+
+        <span> Micro-interactions </span>
+      </div>
+
+      <div v-if="finalScreenGallery.length" class="gallery-wrap reveal">
+        <CaseImageGallery
+          :images="finalScreenGallery"
+          label="Cinema Lumière final app screens"
+        />
+      </div>
+
+      <div v-else class="asset-placeholder reveal">
+        <span> Final screens to add later </span>
+
+        <p>
+          This is where we can show every important app screen in a sharp,
+          clickable gallery.
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================
+         FIGMA PROTOTYPES
+    ====================================== -->
+
+    <section class="section prototype-section">
+      <p class="section-kicker">Interactive prototypes</p>
+
+      <div class="prototype-heading">
+        <h2>Explore both versions of the experience.</h2>
+
+        <p>
+          The two prototypes represent different levels of familiarity with the
+          app: a new user who needs guidance and a returning user who can move
+          more directly towards personal content.
+        </p>
+      </div>
+
+      <div class="prototype-grid">
+        <article class="prototype-card">
+          <div class="prototype-card__heading">
+            <span> Prototype 01 </span>
+
+            <h3>New user</h3>
+
+            <p>
+              An experience with more guidance, onboarding and empty states.
+            </p>
+          </div>
+
+          <div class="figma-frame figma-frame--mobile">
+            <iframe
+              :src="newUserPrototype"
+              title="Cinema Lumière prototype for a new user"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </article>
+
+        <article class="prototype-card">
+          <div class="prototype-card__heading">
+            <span> Prototype 02 </span>
+
+            <h3>Returning user</h3>
+
+            <p>
+              Faster access to tickets, preferences and personalised content.
+            </p>
+          </div>
+
+          <div class="figma-frame figma-frame--mobile">
+            <iframe
+              :src="returningUserPrototype"
+              title="Cinema Lumière prototype for a returning user"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </article>
+      </div>
     </section>
 
     <!-- =====================================
          MY ROLE
     ====================================== -->
 
-    <section ref="role" class="section role-section">
-      <div class="case-text-grid">
-        <h2 class="reveal">My role</h2>
+    <section id="lumiere-role" ref="role" class="section role-section">
+      <p class="section-kicker reveal">My contribution</p>
+
+      <div class="text-section__grid">
+        <h2 class="reveal">Group research. Individual product design.</h2>
 
         <div>
-          <p class="case-large-copy reveal">
+          <p class="large-copy reveal">
             I contributed throughout the UX research and interaction design
-            process.
+            process before developing my own high-fidelity version of the app.
           </p>
 
           <p class="reveal">
-            My work included benchmarking, information architecture, user flows,
-            wireframes, prototyping and design iterations.
+            My work included benchmarking, UX laws, information architecture,
+            user stories, flows, wireframes, prototyping and design iterations.
           </p>
 
           <p class="reveal">
-            Through this project, I learned how UX laws, user stories,
-            acceptance criteria, usability testing and heuristics can make
-            design decisions more intentional and less dependent on personal
-            preference.
+            In the individual phase, I translated the shared wireframe structure
+            into my own visual system and interaction design.
+          </p>
+
+          <p class="reveal">
+            I also implemented the required Figma variables, built the two user
+            contexts and tested the high-fidelity prototype with ten
+            participants.
           </p>
         </div>
+      </div>
+
+      <div class="contribution-grid">
+        <article class="contribution-card reveal">
+          <span> 01 </span>
+
+          <h3>UX research</h3>
+
+          <p>
+            Benchmarking the existing experience and applying UX principles.
+          </p>
+        </article>
+
+        <article class="contribution-card reveal">
+          <span> 02 </span>
+
+          <h3>Structure</h3>
+
+          <p>
+            User stories, flows, prioritisation and information architecture.
+          </p>
+        </article>
+
+        <article class="contribution-card reveal">
+          <span> 03 </span>
+
+          <h3>UI design</h3>
+
+          <p>Creating my individual high-fidelity app and visual system.</p>
+        </article>
+
+        <article class="contribution-card reveal">
+          <span> 04 </span>
+
+          <h3>Interaction</h3>
+
+          <p>Prototyping variables, dynamic states and micro-interactions.</p>
+        </article>
+
+        <article class="contribution-card reveal">
+          <span> 05 </span>
+
+          <h3>Testing</h3>
+
+          <p>Evaluating the prototype with ten participants and refining it.</p>
+        </article>
       </div>
     </section>
 
@@ -728,31 +1514,44 @@ const testTasks = [
       ref="reflection"
       class="section reflection-section"
     >
-      <p class="case-label reveal">Reflection</p>
+      <p class="section-kicker reveal">Reflection</p>
 
       <h2 class="reveal">Structure before polish.</h2>
 
       <div class="reflection-grid">
         <p class="reveal">
           This project helped me understand that interaction design is not only
-          about creating screens, but about building a logical and usable
-          digital experience.
+          about creating screens. It is about building a logical and usable
+          experience between those screens.
         </p>
 
         <p class="reveal">
-          By working with UX laws, card sorting, information architecture, user
-          stories, usability testing and heuristics, I learned how to analyse
-          problems and improve a design step by step.
+          UX laws gave me a stronger vocabulary for explaining why an
+          interaction works or where an interface creates unnecessary friction.
         </p>
 
         <p class="reveal">
-          A strong mobile app experience needs a clear structure before visual
-          polish.
+          User stories, flowcharts and information architecture showed me the
+          importance of solving structural problems before investing time in
+          high-fidelity visuals.
         </p>
 
         <p class="reveal">
-          The prototype did not need to be perfect or beautiful from the start.
-          It needed to be understandable, intuitive, tested and improved.
+          Working with variables made my Figma prototypes feel much closer to
+          real product behaviour and pushed me to think in states rather than
+          static screens.
+        </p>
+
+        <p class="reveal">
+          Usability testing also taught me that a good result does not always
+          require a dramatic redesign. Sometimes a few precise changes are more
+          valuable than starting over.
+        </p>
+
+        <p class="reveal">
+          Lumière strengthened my interest in UX/UI and interaction design
+          because it combined analysis, visual design, prototyping and real user
+          feedback in one project.
         </p>
       </div>
     </section>
@@ -765,9 +1564,9 @@ const testTasks = [
       <p>Next project</p>
 
       <RouterLink to="/projects/accessibility">
-        Café Crèma Accessibility
+        <span> Café Crèma Accessibility </span>
 
-        <span aria-hidden="true"> ↗ </span>
+        <IconArrowUpRight />
       </RouterLink>
     </section>
   </main>
@@ -791,47 +1590,52 @@ const testTasks = [
 }
 
 /* =========================================
-   LABELS
+   COMMON
 ========================================= */
 
-.case-label,
-.stack-label {
-  font-size: 12px;
+.section-kicker {
+  margin-bottom: 34px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
 
   text-transform: uppercase;
 
-  letter-spacing: 0.12em;
-
-  opacity: 0.58;
+  opacity: 0.46;
 }
 
-/* =========================================
-   COMMON CASE GRID
-========================================= */
+.text-section {
+  padding-top: 150px;
 
-.case-text-grid {
+  padding-bottom: 150px;
+}
+
+.text-section__grid {
   display: grid;
 
   grid-template-columns:
-    minmax(220px, 0.75fr)
-    minmax(0, 1.25fr);
+    minmax(260px, 0.8fr)
+    minmax(0, 1.2fr);
 
   gap: clamp(60px, 9vw, 150px);
 }
 
-.case-text-grid h2 {
-  max-width: 430px;
+.text-section__grid h2 {
+  max-width: 610px;
 
-  font-size: clamp(34px, 4vw, 62px);
+  font-family: var(--font-heading);
+
+  font-size: clamp(38px, 5vw, 72px);
 
   line-height: 0.98;
 
-  letter-spacing: -0.05em;
-
-  text-transform: uppercase;
+  letter-spacing: -0.055em;
 }
 
-.case-text-grid p {
+.text-section__grid p {
   max-width: 650px;
 
   font-size: 15px;
@@ -839,28 +1643,16 @@ const testTasks = [
   line-height: 1.65;
 }
 
-.case-text-grid p + p {
-  margin-top: 24px;
+.text-section__grid p + p {
+  margin-top: 22px;
 }
 
-.case-large-copy {
-  font-size: clamp(21px, 2vw, 29px) !important;
+.large-copy {
+  font-size: clamp(21px, 2vw, 30px) !important;
 
   line-height: 1.35 !important;
 
   letter-spacing: -0.025em;
-}
-
-.section-number {
-  margin-bottom: 40px;
-
-  font-size: clamp(54px, 7vw, 100px);
-
-  line-height: 1;
-
-  letter-spacing: -0.06em;
-
-  opacity: 0.14;
 }
 
 /* =========================================
@@ -870,7 +1662,7 @@ const testTasks = [
 .case-hero {
   padding-top: 100px;
 
-  padding-bottom: 140px;
+  padding-bottom: 130px;
 }
 
 .case-hero__tags {
@@ -880,17 +1672,17 @@ const testTasks = [
 
   gap: 8px;
 
-  margin-bottom: 50px;
+  margin-bottom: 52px;
 }
 
 .case-hero__tags span {
   padding: 8px 13px;
 
-  border: 1px solid rgba(17, 17, 17, 0.16);
+  border: 1px solid rgba(17, 17, 17, 0.14);
 
   border-radius: 999px;
 
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .case-hero__layout {
@@ -900,29 +1692,43 @@ const testTasks = [
     1.25fr
     0.75fr;
 
-  gap: clamp(70px, 11vw, 180px);
+  gap: clamp(70px, 10vw, 170px);
 
   align-items: end;
 }
 
+.case-label {
+  font-size: 11px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  opacity: 0.5;
+}
+
 .case-hero h1 {
-  margin: 16px 0 18px;
+  max-width: 850px;
 
-  max-width: 800px;
+  margin: 15px 0 22px;
 
-  font-size: clamp(66px, 9vw, 142px);
+  font-family: var(--font-heading);
 
-  line-height: 0.84;
+  font-size: clamp(68px, 9vw, 145px);
+
+  line-height: 0.82;
 
   letter-spacing: -0.075em;
 }
 
 .case-hero__subtitle {
-  max-width: 650px;
+  max-width: 690px;
 
-  margin-bottom: 40px;
+  margin-bottom: 34px;
 
-  font-size: clamp(30px, 4vw, 58px);
+  font-family: var(--font-heading);
+
+  font-size: clamp(34px, 4vw, 62px);
 
   line-height: 1;
 
@@ -934,7 +1740,7 @@ const testTasks = [
 
   font-size: clamp(16px, 1.4vw, 20px);
 
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .case-hero__intro + .case-hero__intro {
@@ -946,32 +1752,38 @@ const testTasks = [
 ========================================= */
 
 .case-meta {
-  border-top: 1px solid rgba(17, 17, 17, 0.17);
+  display: grid;
+
+  margin: 0;
+
+  border-top: 1px solid rgba(17, 17, 17, 0.15);
 }
 
 .case-meta__item {
   display: grid;
 
-  grid-template-columns: 90px 1fr;
+  grid-template-columns: 100px 1fr;
 
   gap: 20px;
 
   padding: 17px 0;
 
-  border-bottom: 1px solid rgba(17, 17, 17, 0.17);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.15);
 }
 
-.case-meta__item span {
-  font-size: 11px;
-
-  text-transform: uppercase;
+.case-meta dt {
+  font-size: 10px;
 
   letter-spacing: 0.08em;
 
-  opacity: 0.5;
+  text-transform: uppercase;
+
+  opacity: 0.45;
 }
 
-.case-meta__item p {
+.case-meta dd {
+  margin: 0;
+
   font-size: 13px;
 
   line-height: 1.45;
@@ -986,9 +1798,7 @@ const testTasks = [
 
   max-width: 1500px;
 
-  height: min(82vh, 900px);
-
-  margin: 0 auto 60px;
+  margin: 0 auto 50px;
 
   overflow: hidden;
 
@@ -1001,61 +1811,81 @@ const testTasks = [
   display: block;
 
   width: 100%;
-
-  height: 100%;
+  height: auto;
 
   object-fit: contain;
 }
 
 /* =========================================
-   STACKS
+   TIMELINE
 ========================================= */
 
-.stack-section {
-  padding: 10px 0 80px;
+.timeline-section {
+  padding-top: 60px;
+
+  padding-bottom: 170px;
 }
 
-.stack-intro {
-  padding-bottom: 45px;
+.timeline-section > h2 {
+  max-width: 900px;
+
+  margin-bottom: 70px;
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(42px, 6vw, 84px);
+
+  line-height: 0.95;
+
+  letter-spacing: -0.06em;
 }
 
-/* =========================================
-   SHARED CARD DNA
-========================================= */
+.timeline-grid {
+  display: grid;
 
-.law-card,
-.moscow-card,
-.testing-card,
-.result-card {
-  border: 1px solid rgba(17, 17, 17, 0.055);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 
-  border-radius: 30px;
+  border-top: 1px solid rgba(17, 17, 17, 0.15);
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.035);
-
-  transition:
-    border-radius 0.45s var(--ease-soft),
-    box-shadow 0.45s var(--ease-soft);
+  border-left: 1px solid rgba(17, 17, 17, 0.15);
 }
 
-.law-card:hover,
-.moscow-card:hover,
-.testing-card:hover,
-.result-card:hover {
-  border-radius: 36px;
+.timeline-card {
+  min-height: 260px;
 
-  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.06);
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 24px;
+
+  border-right: 1px solid rgba(17, 17, 17, 0.15);
+
+  border-bottom: 1px solid rgba(17, 17, 17, 0.15);
 }
 
-/* wrappers keep reveal and tilt transforms separate */
+.timeline-card > span {
+  margin-bottom: auto;
 
-.law-card-wrap,
-.moscow-card-wrap,
-.testing-card-wrap,
-.result-card-wrap {
-  min-width: 0;
+  font-size: 40px;
 
-  height: 100%;
+  opacity: 0.12;
+}
+
+.timeline-card h3 {
+  margin: 50px 0 10px;
+
+  font-family: var(--font-heading);
+
+  font-size: 17px;
+}
+
+.timeline-card p {
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  opacity: 0.72;
 }
 
 /* =========================================
@@ -1069,23 +1899,145 @@ const testTasks = [
 
   gap: 12px;
 
-  margin-top: 80px;
+  margin-top: 90px;
+}
+
+.law-card-wrap {
+  min-width: 0;
+
+  height: 100%;
 }
 
 .law-card {
-  display: flex;
-
-  align-items: flex-end;
-
-  min-height: 130px;
+  min-height: 230px;
 
   height: 100%;
 
-  padding: 20px;
+  display: flex;
 
-  background: rgba(211, 217, 189, 0.42);
+  flex-direction: column;
 
-  font-size: 14px;
+  padding: 22px;
+
+  border: 1px solid rgba(17, 17, 17, 0.05);
+
+  border-radius: 24px;
+
+  background: rgba(211, 217, 189, 0.4);
+}
+
+.law-card > span {
+  margin-bottom: auto;
+
+  font-size: 36px;
+
+  opacity: 0.13;
+}
+
+.law-card h3 {
+  margin: 45px 0 10px;
+
+  font-family: var(--font-heading);
+
+  font-size: 16px;
+}
+
+.law-card p {
+  font-size: 12px;
+
+  line-height: 1.5;
+
+  opacity: 0.7;
+}
+
+/* =========================================
+   STACKS
+========================================= */
+
+.stack-section {
+  padding-bottom: 100px;
+}
+
+.stack-heading {
+  padding-top: 30px;
+
+  padding-bottom: 48px;
+}
+
+.stack-heading > p {
+  margin-bottom: 16px;
+
+  font-size: 11px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  opacity: 0.48;
+}
+
+.stack-heading h2 {
+  max-width: 850px;
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(34px, 5vw, 70px);
+
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+}
+
+/* =========================================
+   GALLERY / PLACEHOLDERS
+========================================= */
+
+.gallery-wrap {
+  margin-top: 80px;
+}
+
+.asset-placeholder {
+  min-height: 340px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 80px;
+
+  padding: 40px;
+
+  border: 1px dashed rgba(17, 17, 17, 0.18);
+
+  border-radius: 28px;
+
+  background: rgba(211, 217, 189, 0.18);
+
+  text-align: center;
+}
+
+.asset-placeholder span {
+  font-size: 10px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  opacity: 0.45;
+}
+
+.asset-placeholder p {
+  max-width: 600px;
+
+  font-size: 15px;
+
+  line-height: 1.55;
 }
 
 /* =========================================
@@ -1103,9 +2055,11 @@ const testTasks = [
 }
 
 .moscow-card {
-  height: 100%;
+  min-height: 250px;
 
   padding: 28px;
+
+  border-radius: 26px;
 
   background: #efefeb;
 }
@@ -1115,11 +2069,11 @@ const testTasks = [
 
   margin-bottom: 28px;
 
-  font-size: 12px;
-
-  text-transform: uppercase;
+  font-size: 11px;
 
   letter-spacing: 0.08em;
+
+  text-transform: uppercase;
 
   opacity: 0.5;
 }
@@ -1139,44 +2093,232 @@ const testTasks = [
 }
 
 /* =========================================
-   DESIGN QUESTION
+   FUNCTIONALITIES
 ========================================= */
 
-.design-question {
-  margin-top: 50px;
+.interaction-section {
+  padding-top: 150px;
 
-  padding: 30px;
-
-  border-radius: 30px;
-
-  background: var(--color-sage);
+  padding-bottom: 150px;
 }
 
-.design-question span {
+.interaction-heading,
+.video-heading {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(260px, 0.45fr);
+
+  gap: 70px;
+
+  align-items: end;
+}
+
+.interaction-heading h2,
+.video-heading h2 {
+  max-width: 850px;
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(44px, 6vw, 84px);
+
+  line-height: 0.95;
+
+  letter-spacing: -0.06em;
+}
+
+.interaction-heading > p,
+.video-heading > p {
+  max-width: 420px;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  opacity: 0.7;
+}
+
+.function-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-top: 80px;
+}
+
+.function-card {
+  min-height: 250px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 24px;
+
+  border-radius: 24px;
+
+  background: rgba(211, 217, 189, 0.38);
+}
+
+.function-card > span {
+  margin-bottom: auto;
+
+  font-size: 38px;
+
+  opacity: 0.13;
+}
+
+.function-card h3 {
+  margin: 45px 0 10px;
+
+  font-family: var(--font-heading);
+
+  font-size: 18px;
+}
+
+.function-card p {
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  opacity: 0.72;
+}
+
+/* =========================================
+   VIDEO
+========================================= */
+
+.video-section {
+  padding-top: 70px;
+
+  padding-bottom: 170px;
+}
+
+.video-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+
+  margin-top: 60px;
+}
+
+.video-card {
+  min-width: 0;
+}
+
+.video-card__frame {
+  overflow: hidden;
+
+  border-radius: 26px;
+
+  background: #111;
+}
+
+.video-card video {
   display: block;
 
-  margin-bottom: 12px;
+  width: 100%;
+  height: auto;
 
-  font-size: 10px;
+  aspect-ratio: 9 / 16;
 
-  text-transform: uppercase;
-
-  letter-spacing: 0.1em;
-
-  opacity: 0.55;
+  object-fit: cover;
 }
 
-.design-question p {
-  font-size: clamp(21px, 2vw, 28px);
+.video-card figcaption {
+  padding: 14px 3px 0;
 }
 
-.design-question .question-shift {
-  margin-top: 28px;
+.video-card figcaption strong {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-family: var(--font-heading);
+
+  font-size: 14px;
+}
+
+.video-card figcaption p {
+  font-size: 12px;
+
+  line-height: 1.5;
+
+  opacity: 0.68;
+}
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+.variables-section {
+  padding-top: 150px;
+
+  padding-bottom: 160px;
+}
+
+.variable-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-top: 85px;
+}
+
+.variable-card {
+  min-height: 240px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 24px;
+
+  border-radius: 24px;
+
+  background: #efefeb;
+}
+
+.variable-card > span {
+  margin-bottom: auto;
+
+  font-size: 36px;
+
+  opacity: 0.13;
+}
+
+.variable-card h3 {
+  margin: 45px 0 10px;
+
+  font-family: var(--font-heading);
+
+  font-size: 17px;
+}
+
+.variable-card p {
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  opacity: 0.72;
 }
 
 /* =========================================
    TESTING
 ========================================= */
+
+.testing-section {
+  padding-top: 150px;
+
+  padding-bottom: 150px;
+}
 
 .testing-grid {
   display: grid;
@@ -1185,53 +2327,61 @@ const testTasks = [
 
   gap: 12px;
 
-  margin-top: 80px;
+  margin-top: 85px;
 }
 
 .testing-card {
+  min-height: 200px;
+
   display: flex;
 
   flex-direction: column;
 
   justify-content: space-between;
 
-  min-height: 210px;
-
-  height: 100%;
-
   padding: 22px;
+
+  border-radius: 24px;
 
   background: #efefeb;
 }
 
-.testing-card__number {
-  font-size: 38px;
+.testing-card span {
+  font-size: 36px;
 
-  opacity: 0.14;
+  opacity: 0.13;
 }
 
 .testing-card p {
+  max-width: 210px;
+
   font-size: 13px;
 
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 /* =========================================
    RESULTS
 ========================================= */
 
-.findings-section > h2 {
-  max-width: 850px;
+.results-section {
+  padding-top: 80px;
 
-  margin: 22px 0 70px;
+  padding-bottom: 160px;
+}
 
-  font-size: clamp(44px, 6vw, 88px);
+.results-section > h2 {
+  max-width: 900px;
 
-  line-height: 0.94;
+  margin-bottom: 70px;
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(44px, 6vw, 84px);
+
+  line-height: 0.95;
 
   letter-spacing: -0.06em;
-
-  text-transform: uppercase;
 }
 
 .results-grid {
@@ -1241,26 +2391,28 @@ const testTasks = [
 
   gap: 14px;
 
-  margin-bottom: 80px;
+  margin-bottom: 90px;
 }
 
 .result-card {
+  min-height: 260px;
+
   display: flex;
 
   flex-direction: column;
 
   justify-content: space-between;
 
-  min-height: 250px;
+  padding: 28px;
 
-  height: 100%;
-
-  padding: 26px;
+  border-radius: 28px;
 
   background: var(--color-sage);
 }
 
 .result-card strong {
+  font-family: var(--font-heading);
+
   font-size: clamp(42px, 5vw, 72px);
 
   font-weight: 400;
@@ -1269,53 +2421,309 @@ const testTasks = [
 }
 
 .result-card p {
-  max-width: 210px;
+  max-width: 220px;
 
   font-size: 13px;
 
   line-height: 1.45;
 }
 
-.finding-list {
-  border-top: 1px solid rgba(17, 17, 17, 0.16);
+.findings-list {
+  border-top: 1px solid rgba(17, 17, 17, 0.15);
 }
 
 .finding {
   display: grid;
 
-  grid-template-columns: 180px 1fr;
+  grid-template-columns: 110px 1fr;
 
-  gap: 50px;
+  gap: 45px;
 
-  padding: 38px 0;
+  padding: 46px 0;
 
-  border-bottom: 1px solid rgba(17, 17, 17, 0.16);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.15);
 }
 
-.finding > span {
-  font-size: 12px;
+.finding__number {
+  font-size: clamp(38px, 4vw, 62px);
+
+  opacity: 0.13;
+}
+
+.finding h3 {
+  margin-bottom: 30px;
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(22px, 2.2vw, 31px);
+}
+
+.finding__columns {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 70px;
+}
+
+.finding__columns span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.1em;
 
   text-transform: uppercase;
 
-  opacity: 0.5;
+  opacity: 0.45;
 }
 
-.finding p {
-  max-width: 650px;
+.finding__columns p {
+  max-width: 450px;
 
-  font-size: 15px;
+  font-size: 14px;
 
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 /* =========================================
-   ROLE
+   FINAL
 ========================================= */
 
-.role-section {
+.final-section {
   padding-top: 160px;
 
   padding-bottom: 160px;
+}
+
+.final-section > h2 {
+  max-width: 1050px;
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(46px, 7vw, 96px);
+
+  line-height: 0.94;
+
+  letter-spacing: -0.065em;
+}
+
+.final-intro {
+  max-width: 680px;
+
+  margin-top: 32px;
+
+  font-size: 16px;
+
+  line-height: 1.65;
+
+  opacity: 0.72;
+}
+
+.final-tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 45px;
+}
+
+.final-tags span {
+  padding: 11px 16px;
+
+  border-radius: 999px;
+
+  background: var(--color-sage);
+
+  font-size: 12px;
+}
+
+/* =========================================
+   FIGMA PROTOTYPES
+========================================= */
+
+.prototype-section {
+  padding-top: 80px;
+
+  padding-bottom: 170px;
+}
+
+.prototype-heading {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(260px, 0.45fr);
+
+  gap: 70px;
+
+  align-items: end;
+
+  margin-bottom: 65px;
+}
+
+.prototype-heading h2 {
+  max-width: 780px;
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(44px, 6vw, 84px);
+
+  line-height: 0.95;
+
+  letter-spacing: -0.06em;
+}
+
+.prototype-heading p {
+  max-width: 440px;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  opacity: 0.7;
+}
+
+.prototype-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 22px;
+}
+
+.prototype-card {
+  min-width: 0;
+}
+
+.prototype-card__heading {
+  min-height: 170px;
+
+  padding-bottom: 25px;
+}
+
+.prototype-card__heading > span {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  opacity: 0.45;
+}
+
+.prototype-card__heading h3 {
+  margin-bottom: 10px;
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(28px, 3vw, 42px);
+
+  letter-spacing: -0.04em;
+}
+
+.prototype-card__heading p {
+  max-width: 430px;
+
+  font-size: 13px;
+
+  line-height: 1.55;
+
+  opacity: 0.68;
+}
+
+.figma-frame {
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(17, 17, 17, 0.12);
+
+  border-radius: 28px;
+
+  background: #efefeb;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.figma-frame iframe {
+  display: block;
+
+  width: 100%;
+
+  border: 0;
+
+  background: transparent;
+}
+
+.figma-frame--mobile iframe {
+  height: min(78vh, 850px);
+}
+
+/* =========================================
+   CONTRIBUTION
+========================================= */
+
+.role-section {
+  padding-top: 150px;
+
+  padding-bottom: 160px;
+}
+
+.contribution-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-top: 90px;
+}
+
+.contribution-card {
+  min-height: 230px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 22px;
+
+  border-radius: 24px;
+
+  background: rgba(211, 217, 189, 0.38);
+}
+
+.contribution-card > span {
+  margin-bottom: auto;
+
+  font-size: 34px;
+
+  opacity: 0.13;
+}
+
+.contribution-card h3 {
+  margin: 45px 0 9px;
+
+  font-family: var(--font-heading);
+
+  font-size: 16px;
+}
+
+.contribution-card p {
+  font-size: 12px;
+
+  line-height: 1.5;
+
+  opacity: 0.72;
 }
 
 /* =========================================
@@ -1323,23 +2731,25 @@ const testTasks = [
 ========================================= */
 
 .reflection-section {
-  padding-top: 160px;
+  padding-top: 150px;
 
-  padding-bottom: 170px;
-
-  background: var(--color-sage);
+  padding-bottom: 160px;
 
   border-radius: 40px 40px 0 0;
+
+  background: var(--color-sage);
 }
 
-.reflection-section h2 {
-  max-width: 900px;
+.reflection-section > h2 {
+  max-width: 1000px;
 
-  margin: 25px 0 80px;
+  margin-bottom: 75px;
 
-  font-size: clamp(54px, 8vw, 110px);
+  font-family: var(--font-heading);
 
-  line-height: 0.88;
+  font-size: clamp(52px, 7vw, 105px);
+
+  line-height: 0.9;
 
   letter-spacing: -0.07em;
 
@@ -1351,7 +2761,7 @@ const testTasks = [
 
   grid-template-columns: repeat(2, minmax(0, 1fr));
 
-  gap: 45px 100px;
+  gap: 40px 100px;
 }
 
 .reflection-grid p {
@@ -1377,11 +2787,11 @@ const testTasks = [
 
   font-size: 11px;
 
-  text-transform: uppercase;
-
   letter-spacing: 0.1em;
 
-  opacity: 0.5;
+  text-transform: uppercase;
+
+  opacity: 0.45;
 }
 
 .next-project a {
@@ -1391,49 +2801,86 @@ const testTasks = [
 
   justify-content: space-between;
 
+  gap: 30px;
+
   padding-bottom: 28px;
 
-  border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.18);
+
+  color: inherit;
+
+  text-decoration: none;
+
+  transition: opacity 0.3s ease;
+}
+
+.next-project a > span {
+  font-family: var(--font-heading);
 
   font-size: clamp(42px, 7vw, 100px);
 
   line-height: 1;
 
   letter-spacing: -0.065em;
+}
 
-  transition: opacity 0.3s ease;
+.next-project a svg {
+  width: clamp(32px, 4vw, 54px);
+
+  height: clamp(32px, 4vw, 54px);
 }
 
 .next-project a:hover {
   opacity: 0.55;
 }
 
-.next-project a span {
-  font-size: 0.5em;
-}
-
 /* =========================================
    TABLET
 ========================================= */
 
+@media (max-width: 1050px) {
+  .law-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .function-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .variable-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contribution-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 950px) {
   .case-hero__layout,
-  .case-text-grid {
+  .text-section__grid,
+  .interaction-heading,
+  .video-heading,
+  .prototype-heading {
     grid-template-columns: 1fr;
 
     gap: 50px;
   }
 
-  .case-meta {
-    max-width: 550px;
-  }
-
-  .law-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .timeline-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .testing-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .prototype-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prototype-card__heading {
+    min-height: auto;
   }
 }
 
@@ -1447,23 +2894,46 @@ const testTasks = [
   }
 
   .case-hero {
-    padding-top: 80px;
+    padding-top: 75px;
+
+    padding-bottom: 100px;
   }
 
   .case-wide-visual {
     width: calc(100% - 24px);
 
-    height: 60vh;
-
     border-radius: 22px;
   }
 
+  .text-section,
+  .interaction-section,
+  .variables-section,
+  .testing-section,
+  .final-section,
+  .prototype-section,
+  .role-section,
+  .reflection-section {
+    padding-top: 105px;
+
+    padding-bottom: 105px;
+  }
+
+  .timeline-grid,
   .law-grid,
   .moscow-grid,
+  .function-grid,
+  .video-grid,
+  .variable-grid,
   .testing-grid,
   .results-grid,
+  .finding__columns,
+  .contribution-grid,
   .reflection-grid {
     grid-template-columns: 1fr;
+  }
+
+  .timeline-card {
+    min-height: 220px;
   }
 
   .finding {
@@ -1472,11 +2942,12 @@ const testTasks = [
     gap: 18px;
   }
 
-  .reflection-section,
-  .role-section {
-    padding-top: 110px;
+  .asset-placeholder {
+    min-height: 280px;
+  }
 
-    padding-bottom: 110px;
+  .figma-frame--mobile iframe {
+    height: 70vh;
   }
 }
 </style>
