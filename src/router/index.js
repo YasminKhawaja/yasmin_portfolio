@@ -13,6 +13,7 @@ import AccessibilityProjectPage from "../pages/AccessibilityProjectPage.vue";
 import SkillsPage from "../pages/SkillsPage.vue";
 import ContactPage from "../pages/ContactPage.vue";
 import PrivacyPage from "../pages/PrivacyPage.vue";
+// import NextProjectPageV2 from "../pages/NextProjectPage.vue/index.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -159,6 +160,19 @@ const router = createRouter({
           "Learn how analytics, cookies, Contentsquare and Google Analytics are used on Yasmin's portfolio and manage your analytics preferences.",
       },
     },
+
+    // {
+    //   path: "/projects/next-v2",
+    //   name: "next-project-v2",
+    //   component: NextProjectPageV2,
+
+    //   meta: {
+    //     title: "NEXT Branding & Website Case Study V2 | Yasmin",
+
+    //     description:
+    //       "Alternative presentation of the NEXT branding and website case study, including UX/UI, responsive design, user testing and front-end development.",
+    //   },
+    // },
   ],
 
   scrollBehavior(to) {
