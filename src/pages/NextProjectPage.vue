@@ -182,9 +182,17 @@ const timeline = [
 ========================================= */
 
 const researchImages = [
-  "/images/next/moodboard_next_webdesign.webp",
-  "/images/next/values_next_webdesign.webp",
-  "/images/next/audience_next_webdesign.webp",
+  "/images/next/research_next_1.webp",
+  "/images/next/research_next_2.webp",
+  "/images/next/research_next_3.webp",
+];
+
+const researchImagesStreamingSisters = [
+  "/images/next/next_moodboard_webdesign_1.webp",
+  "/images/next/next_why_webdesign_2.webp",
+  "/images/next/next_values_webdesign_3.webp",
+  "/images/next/next_audience_webdesign_4.webp",
+  "/images/next/next_richting_webdesign_5.webp",
 ];
 
 /* =========================================
@@ -192,15 +200,10 @@ const researchImages = [
 ========================================= */
 
 const identityImages = [
-  "/images/next/new_moodboard_next_webdesign.webp",
-  "/images/next/colours_next_webdesign.webp",
-  "/images/next/typography_next_webdesign.webp",
-  "/images/next/logos_next_webdesign.webp",
-  "/images/next/logo_v1_branding.webp",
-  "/images/next/logo_v2_branding.webp",
-  "/images/next/logo_v3_branding.webp",
-  "/images/next/logo_v4_branding.webp",
-  "/images/next/new_next_branding.webp",
+  "/images/next/next_new_moodboard_next_webdesign.webp",
+  "/images/next/next_colours_webdesign.webp",
+  "/images/next/next_typography_webdesign.webp",
+  "/images/next/next_logos_webdesign.webp",
 ];
 
 /* =========================================
@@ -270,7 +273,7 @@ const iterationImages = [
 
 const buildGallery = [
   {
-    src: "/images/next/moodboard-10.jpg",
+    src: "/images/next/final_wireframes_webdesign.webp",
     alt: "NEXT responsive website implementation",
     label: "Responsive website",
     caption:
@@ -278,14 +281,14 @@ const buildGallery = [
     wide: true,
   },
   {
-    src: "/images/next/moodboard-11.jpg",
+    src: "/images/next/next_live.webp",
     alt: "NEXT website interface",
     label: "Front-end development",
     caption:
       "The visual identity was translated from Figma into a working interface using HTML, CSS and JavaScript.",
   },
   {
-    src: "/images/next/moodboard-12.jpg",
+    src: "/images/next/next_bludit_cms.webp",
     alt: "NEXT website page",
     label: "Bludit CMS",
     caption:
@@ -366,7 +369,7 @@ const findings = [
 
 const finalGallery = [
   {
-    src: "/images/next/moodboard-16.jpg",
+    src: "/images/next/next_homepage_live.webp",
     alt: "NEXT final homepage design",
     label: "Final result",
     caption:
@@ -374,14 +377,14 @@ const finalGallery = [
     wide: true,
   },
   {
-    src: "/images/next/moodboard-17.jpg",
+    src: "/images/next/next_wireframe_mobile_webdesign.webp",
     alt: "NEXT final responsive interface",
     label: "Responsive design",
     caption:
       "The final interface combines a clearer content hierarchy with the stronger visual identity.",
   },
   {
-    src: "/images/next/moodboard-18.jpg",
+    src: "/images/next/next_hero_live.webp",
     alt: "NEXT final website design",
     label: "Final website",
     caption:
@@ -649,6 +652,19 @@ const figmaEmbedUrl =
         :images="researchImages"
         alt-prefix="NEXT research and visual direction"
       />
+
+      <div class="section stack-heading">
+        <p>Our interpretation</p>
+
+        <h2>
+          From client information to our own visual understanding of NEXT.
+        </h2>
+      </div>
+
+      <StickyImageStack
+        :images="researchImagesStreamingSisters"
+        alt-prefix="NEXT team research, moodboard, values and audience exploration"
+      />
     </section>
 
     <!-- =====================================
@@ -740,10 +756,11 @@ const figmaEmbedUrl =
         </article>
       </div>
 
-      <div class="asset-placeholder reveal">
-        <span> Image to add later </span>
-
-        <p>Information architecture / sitemap export</p>
+      <div class="asset-image reveal">
+        <img
+          src="/images/next/next_navigatiestructuur_webdesign.webp"
+          alt="NEXT information architecture and sitemap"
+        />
       </div>
     </section>
 
@@ -875,7 +892,13 @@ const figmaEmbedUrl =
       </div>
 
       <div class="selected-logo-note">
-        <span> Selected logo </span>
+        <span>Selected logo</span>
+
+        <img
+          class="selected-logo-note__logo"
+          src="/images/next/logo_final_branding.svg"
+          alt="Selected NEXT logo"
+        />
 
         <div>
           <h3>The identity changed. This logo stayed.</h3>
@@ -996,10 +1019,11 @@ const figmaEmbedUrl =
         </div>
       </div>
 
-      <div class="asset-placeholder reveal">
-        <span> Images to add later </span>
-
-        <p>High-fidelity screens / final Figma exports</p>
+      <div class="asset-image reveal">
+        <img
+          src="/images/next/final_wireframes_webdesign.webp"
+          alt="NEXT high-fidelity design"
+        />
       </div>
     </section>
 
@@ -1905,6 +1929,18 @@ const figmaEmbedUrl =
   opacity: 0.72;
 }
 
+.asset-image {
+  margin-top: 80px;
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+.asset-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* =========================================
    STACK
 ========================================= */
@@ -2004,7 +2040,7 @@ const figmaEmbedUrl =
 .branding-selection-section .text-section__grid h2 {
   max-width: 650px;
 }
-
+/* 
 .selected-logo-note {
   display: grid;
 
@@ -2020,19 +2056,33 @@ const figmaEmbedUrl =
   padding-top: 30px;
 
   border-top: 1px solid rgba(17, 17, 17, 0.16);
+} */
+
+.selected-logo-note {
+  display: grid;
+  grid-template-columns:
+    140px
+    minmax(220px, 320px)
+    minmax(0, 1fr);
+
+  gap: clamp(40px, 6vw, 90px);
+
+  align-items: start;
+
+  margin-top: 90px;
+  padding-top: 36px;
+
+  border-top: 1px solid rgba(17, 17, 17, 0.15);
 }
 
 .selected-logo-note > span {
   font-size: 10px;
-
   letter-spacing: 0.1em;
-
   text-transform: uppercase;
-
   opacity: 0.45;
 }
 
-.selected-logo-note h3 {
+/* .selected-logo-note h3 {
   max-width: 600px;
 
   margin-bottom: 14px;
@@ -2042,18 +2092,46 @@ const figmaEmbedUrl =
   font-size: clamp(22px, 2.3vw, 32px);
 
   line-height: 1.2;
+} */
+
+.selected-logo-note h3 {
+  margin-bottom: 20px;
+
+  font-family: var(--font-heading);
+  font-size: clamp(30px, 3vw, 46px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
 }
 
 .selected-logo-note p {
-  max-width: 620px;
+  max-width: 500px;
 
-  font-size: 15px;
-
-  line-height: 1.65;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .selected-logo-note p + p {
   margin-top: 14px;
+}
+
+/* .selected-logo-note__logo {
+  display: block;
+  width: min(220px, 100%);
+  height: auto;
+} */
+
+.selected-logo-note__logo {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+
+  justify-self: center;
+}
+
+.selected-logo-note > div {
+  min-width: 0;
+  max-width: 520px;
 }
 
 /* =========================================
@@ -2735,7 +2813,6 @@ const figmaEmbedUrl =
   .text-section__grid,
   .prototype-heading {
     grid-template-columns: 1fr;
-
     gap: 50px;
   }
 
@@ -2758,6 +2835,20 @@ const figmaEmbedUrl =
   .team-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .selected-logo-note {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .selected-logo-note__logo {
+    justify-self: start;
+    max-width: 220px;
+  }
+
+  .selected-logo-note > div {
+    max-width: 600px;
+  }
 }
 
 /* =========================================
@@ -2771,13 +2862,11 @@ const figmaEmbedUrl =
 
   .case-hero {
     padding-top: 75px;
-
     padding-bottom: 100px;
   }
 
   .case-wide-visual {
     width: calc(100% - 24px);
-
     border-radius: 22px;
   }
 
@@ -2789,7 +2878,6 @@ const figmaEmbedUrl =
   .selection-section,
   .branding-selection-section {
     padding-top: 105px;
-
     padding-bottom: 105px;
   }
 
@@ -2809,7 +2897,6 @@ const figmaEmbedUrl =
 
   .finding {
     grid-template-columns: 1fr;
-
     gap: 18px;
   }
 
@@ -2827,8 +2914,16 @@ const figmaEmbedUrl =
 
   .selected-logo-note {
     grid-template-columns: 1fr;
+    gap: 28px;
+  }
 
-    gap: 14px;
+  .selected-logo-note__logo {
+    justify-self: start;
+    max-width: 180px;
+  }
+
+  .selected-logo-note > div {
+    max-width: 100%;
   }
 }
 </style>
